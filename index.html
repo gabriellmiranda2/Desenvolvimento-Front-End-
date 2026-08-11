@@ -16,7 +16,82 @@
 
 
     <main>
+         <section aria-labelledby="titulo-filtros">
+            <h2 id="titulo-filtros">Busca e filtros</h2>
 
+            <form action="" method="get">
+
+                <div>
+                    <label for="busca">Buscar tarefa por título:</label>
+                    <input
+                        type="search"
+                        id="busca"
+                        name="busca"
+                    >
+                </div>
+
+                <fieldset>
+                    <legend>Filtrar por status</legend>
+
+                    <label for="status">Status da tarefa:</label>
+                    <select id="status" name="status">
+                        <option value="">Todos os status</option>
+                        <option value="a-fazer">A fazer</option>
+                        <option value="em-andamento">Em andamento</option>
+                        <option value="em-revisao">Em revisão</option>
+                        <option value="concluida">Concluída</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Filtrar por prioridade</legend>
+
+                    <label for="prioridade">Prioridade da tarefa:</label>
+                    <select id="prioridade" name="prioridade">
+                        <option value="">Todas as prioridades</option>
+                        <option value="baixa">Baixa</option>
+                        <option value="media">Média</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </fieldset>
+
+                <button type="submit">Aplicar filtros</button>
+
+            </form>
+        </section>
+
+
+        <section aria-labelledby="titulo-quadro">
+            <h2 id="titulo-quadro">Quadro de tarefas</h2>
+
+
+            <section aria-labelledby="titulo-a-fazer">
+                <h3 id="titulo-a-fazer">A fazer</h3>
+
+                <ul>
+
+                    <li>
+                        <article>
+                            <h4>Definir requisitos do projeto</h4>
+                            <p><strong>Projeto:</strong> Sistema Acadêmico</p>
+                            <p><strong>Responsável:</strong> Gabriel Miranda</p>
+                            <p><strong>Prazo:</strong> 15/08/2026</p>
+                            <p><strong>Prioridade:</strong> Alta</p>
+                        </article>
+                    </li>
+
+                    <li>
+                        <article>
+                            <h4>Criar modelo do banco de dados</h4>
+                            <p><strong>Projeto:</strong> Sistema Acadêmico</p>
+                            <p><strong>Responsável:</strong> Ana Souza</p>
+                            <p><strong>Prazo:</strong> 18/08/2026</p>
+                            <p><strong>Prioridade:</strong> Média</p>
+                        </article>
+                    </li>
+
+                </ul>
+            </section>
 
     </main>
 
