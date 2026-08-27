@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Tarefas Acadêmicas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
+ 
 <body>
-
-
-
-    <header>
+ 
+ 
+ 
+    <header class="cabecalho">
         <h1>Gerenciador de Tarefas Acadêmicas</h1>
     </header>
-
-
+ 
+ 
     <main>
-         <section aria-labelledby="titulo-filtros">
+         <section class="filtros" aria-labelledby="titulo-filtros">
             <h2 id="titulo-filtros">Busca e filtros</h2>
-
+ 
             <form action="" method="get">
-
-                <div>
+ 
+                <div class="campo">
                     <label for="busca">Buscar tarefa por título:</label>
                     <input
                         type="search"
@@ -29,10 +30,10 @@
                         name="busca"
                     >
                 </div>
-
-                <fieldset>
+ 
+                <fieldset class="campo">
                     <legend>Filtrar por status</legend>
-
+ 
                     <label for="status">Status da tarefa:</label>
                     <select id="status" name="status">
                         <option value="">Todos os status</option>
@@ -42,10 +43,10 @@
                         <option value="concluida">Concluída</option>
                     </select>
                 </fieldset>
-
-                <fieldset>
+ 
+                <fieldset class="campo">
                     <legend>Filtrar por prioridade</legend>
-
+ 
                     <label for="prioridade">Prioridade da tarefa:</label>
                     <select id="prioridade" name="prioridade">
                         <option value="">Todas as prioridades</option>
@@ -54,140 +55,69 @@
                         <option value="alta">Alta</option>
                     </select>
                 </fieldset>
-
+ 
                 <button type="submit">Aplicar filtros</button>
-
+ 
             </form>
         </section>
-
-
-        <section aria-labelledby="titulo-quadro">
+ 
+ 
+        <section class="quadro" aria-labelledby="titulo-quadro">
             <h2 id="titulo-quadro">Quadro de tarefas</h2>
-
-
-            <section aria-labelledby="titulo-a-fazer">
+ 
+ 
+            <section class="coluna coluna--a-fazer" aria-labelledby="titulo-a-fazer">
                 <h3 id="titulo-a-fazer">A fazer</h3>
-
-                <ul>
-
+ 
+                <ul class="cartoes">
+ 
                     <li>
-                        <article>
+                        <article class="cartao">
                             <h4>Definir requisitos do projeto</h4>
                             <p><strong>Projeto:</strong> Sistema Acadêmico</p>
                             <p><strong>Responsável:</strong> Gabriel Miranda</p>
-                            <p><strong>Prazo:</strong> 15/08/2026</p>
-                            <p><strong>Prioridade:</strong> Alta</p>
+                            <p class="prazo"><strong>Prazo:</strong> 15/08/2026</p>
+                            <p class="prioridade prioridade--alta"><strong>Prioridade:</strong> Alta</p>
                         </article>
                     </li>
-
+ 
                     <li>
-                        <article>
+                        <article class="cartao">
                             <h4>Criar modelo do banco de dados</h4>
                             <p><strong>Projeto:</strong> Sistema Acadêmico</p>
                             <p><strong>Responsável:</strong> Ana Souza</p>
-                            <p><strong>Prazo:</strong> 18/08/2026</p>
-                            <p><strong>Prioridade:</strong> Média</p>
+                            <p class="prazo"><strong>Prazo:</strong> 18/08/2026</p>
+                            <p class="prioridade prioridade--media"><strong>Prioridade:</strong> Média</p>
                         </article>
                     </li>
-
+ 
                 </ul>
             </section>
-
-               <section aria-labelledby="titulo-em-andamento">
+ 
+               <section class="coluna coluna--em-andamento" aria-labelledby="titulo-em-andamento">
                 <h3 id="titulo-em-andamento">Em andamento</h3>
-
-                <ul>
-
+ 
+                <ul class="cartoes">
+ 
                     <li>
-                        <article>
+                        <article class="cartao">
                             <h4>Desenvolver tela de login</h4>
                             <p><strong>Projeto:</strong> Portal Universitário</p>
                             <p><strong>Responsável:</strong> Gabriel Miranda</p>
-                            <p><strong>Prazo:</strong> 20/08/2026</p>
-                            <p><strong>Prioridade:</strong> Alta</p>
+                            <p class="prazo"><strong>Prazo:</strong> 20/08/2026</p>
+                            <p class="prioridade prioridade--alta"><strong>Prioridade:</strong> Alta</p>
                         </article>
                     </li>
-
+ 
                     <li>
-                        <article>
+                        <article class="cartao">
                             <h4>Implementar cadastro de usuários</h4>
                             <p><strong>Projeto:</strong> Portal Universitário</p>
                             <p><strong>Responsável:</strong> João Silva</p>
-                            <p><strong>Prazo:</strong> 22/08/2026</p>
-                            <p><strong>Prioridade:</strong> Média</p>
+                            <p class="prazo"><strong>Prazo:</strong> 22/08/2026</p>
+                            <p class="prioridade prioridade--media"><strong>Prioridade:</strong> Média</p>
                         </article>
                     </li>
-
+ 
                 </ul>
             </section>
-
-
-            <section aria-labelledby="titulo-em-revisao">
-                <h3 id="titulo-em-revisao">Em revisão</h3>
-
-                <ul>
-
-                    <li>
-                        <article>
-                            <h4>Revisar documentação da API</h4>
-                            <p><strong>Projeto:</strong> Sistema de Biblioteca</p>
-                            <p><strong>Responsável:</strong> Maria Oliveira</p>
-                            <p><strong>Prazo:</strong> 25/08/2026</p>
-                            <p><strong>Prioridade:</strong> Baixa</p>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <h4>Testar fluxo de empréstimos</h4>
-                            <p><strong>Projeto:</strong> Sistema de Biblioteca</p>
-                            <p><strong>Responsável:</strong> Gabriel Miranda</p>
-                            <p><strong>Prazo:</strong> 26/08/2026</p>
-                            <p><strong>Prioridade:</strong> Alta</p>
-                        </article>
-                    </li>
-
-                </ul>
-            </section>
-
-
-            <section aria-labelledby="titulo-concluida">
-                <h3 id="titulo-concluida">Concluída</h3>
-
-                <ul>
-
-                    <li>
-                        <article>
-                            <h4>Criar protótipo da interface</h4>
-                            <p><strong>Projeto:</strong> Age Free</p>
-                            <p><strong>Responsável:</strong> Gabriel Miranda</p>
-                            <p><strong>Prazo:</strong> 05/08/2026</p>
-                            <p><strong>Prioridade:</strong> Média</p>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article>
-                            <h4>Escrever documentação inicial</h4>
-                            <p><strong>Projeto:</strong> Age Free</p>
-                            <p><strong>Responsável:</strong> Ana Souza</p>
-                            <p><strong>Prazo:</strong> 07/08/2026</p>
-                            <p><strong>Prioridade:</strong> Baixa</p>
-                        </article>
-                    </li>
-
-                </ul>
-            </section>
-
-        </section>
-
-
-    </main>
-
-
-    <footer>
-        <p>Gabriel Miranda — Desenvolvimento Frontend — 2026.2</p>
-    </footer>
-
-</body>
-</html>
