@@ -1,0 +1,402 @@
+html {
+  box-sizing: border-box;
+  /* font-size fica em 100% (não em px) para respeitar a configuração de
+     tamanho de fonte do usuário no navegador */
+  font-size: 100%;
+}
+ 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+ 
+body,
+h1, h2, h3, h4,
+p,
+ul,
+fieldset {
+  margin: 0;
+}
+ 
+ul {
+  padding: 0;
+  list-style: none;
+}
+ 
+fieldset {
+  border: none;
+  padding: 0;
+}
+ 
+img {
+  max-width: 100%;
+  display: block;
+}
+ 
+/* --------------------------------------------------------------------------
+   2. Sistema de design — propriedades personalizadas no :root
+   -------------------------------------------------------------------------- */
+ 
+:root {
+  /* Cores de superfície e texto */
+  --cor-fundo: #f3f5f8;
+  --cor-superficie: #ffffff;
+  --cor-superficie-alt: #eaeef3;
+  --cor-texto: #1a1d23;
+  --cor-texto-suave: #4b5563;
+  --cor-borda: #d7dce3;
+  --cor-foco: #1d4ed8;
+ 
+  /* Uma cor por status (usada em borda, marcador e nada mais — nunca
+     repetida como valor literal fora daqui) */
+  --cor-status-a-fazer: #7c3aed;
+  --cor-status-andamento: #d97706;
+  --cor-status-revisao: #0284c7;
+  --cor-status-concluida: #16a34a;
+ 
+  /* Pares fundo/texto de prioridade, já pensados para 4.5:1 de contraste */
+  --cor-prioridade-alta-fundo: #fee2e2;
+  --cor-prioridade-alta-texto: #991b1b;
+  --cor-prioridade-media-fundo: #fef3c7;
+  --cor-prioridade-media-texto: #92400e;
+  --cor-prioridade-baixa-fundo: #dcfce7;
+  --cor-prioridade-baixa-texto: #166534;
+ 
+  /* Escala de espaçamento (mais que três níveis) */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 1rem;
+  --espaco-4: 1.5rem;
+  --espaco-5: 2rem;
+  --espaco-6: 3rem;
+ 
+  /* Raio de canto */
+  --raio-sm: 0.5rem;
+  --raio-md: 0.75rem;
+ 
+  /* Tipografia */
+  --fonte-base: "Segoe UI", system-ui, -apple-system, "Helvetica Neue",
+    Arial, sans-serif;
+}
+ 
+/* --------------------------------------------------------------------------
+   3. Base
+   -------------------------------------------------------------------------- */
+ 
+body {
+  font-family: var(--fonte-base);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.55;
+  font-size: 1rem;
+}
+ 
+/* Foco visível e consistente em todo elemento focável — nunca removido
+   sem substituto */
+:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
+  border-radius: var(--raio-sm);
+}
+ 
+/* --------------------------------------------------------------------------
+   4. Cabeçalho
+   -------------------------------------------------------------------------- */
+ 
+.cabecalho {
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: var(--espaco-4) var(--espaco-3);
+}
+ 
+.cabecalho h1 {
+  /* clamp(): mínimo, ideal (combinando rem + vw), máximo — cresce com a
+     viewport sem depender só de vw, então continua respeitando o zoom
+     de fonte do usuário */
+  font-size: clamp(1.375rem, 1rem + 1.6vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+ 
+/* --------------------------------------------------------------------------
+   5. Miolo da página
+   -------------------------------------------------------------------------- */
+ 
+main {
+  max-width: 1400px;
+  margin-inline: auto;
+  padding: var(--espaco-4) var(--espaco-3) var(--espaco-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-5);
+}
+ 
+main h2 {
+  font-size: 1.15rem;
+  margin-bottom: var(--espaco-3);
+}
+ 
+/* --------------------------------------------------------------------------
+   6. Busca e filtros — base em coluna (mobile), sem media query ainda
+   -------------------------------------------------------------------------- */
+ 
+.filtros {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: var(--espaco-4);
+}
+ 
+.filtros form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--espaco-3);
+}
+ 
+.filtros .campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+ 
+.filtros label,
+.filtros legend {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+}
+ 
+.filtros input,
+.filtros select {
+  width: 100%;
+  min-height: 2.75rem; /* alvo de toque confortável, acima de 24px */
+  padding: var(--espaco-2);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+}
+ 
+.filtros button {
+  min-height: 2.75rem;
+  padding: var(--espaco-2) var(--espaco-4);
+  border: none;
+  border-radius: var(--raio-sm);
+  background: var(--cor-foco);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  align-self: flex-start;
+}
+ 
+.filtros button:hover {
+  background: #1e40af;
+}
+ 
+/* Breakpoint: a partir de 600px o formulário tem largura sobrando para
+   colocar os três controles lado a lado, sem espremer os rótulos —
+   abaixo disso o texto dos labels quebrava em duas linhas dentro do
+   controle. */
+@media (min-width: 600px) {
+  .filtros form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+ 
+  .filtros .campo {
+    flex: 1 1 200px;
+    min-width: 0;
+  }
+ 
+  .filtros input,
+  .filtros select {
+    width: auto;
+  }
+}
+ 
+/* --------------------------------------------------------------------------
+   7. Quadro de tarefas — Grid
+   -------------------------------------------------------------------------- */
+ 
+.quadro {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: var(--espaco-4);
+}
+ 
+/* O título do quadro ocupa a largura inteira da grade, seja qual for o
+   número de colunas que o auto-fit criar */
+.quadro > h2 {
+  grid-column: 1 / -1;
+}
+ 
+/* --------------------------------------------------------------------------
+   8. Colunas de status — Flexbox em coluna
+   -------------------------------------------------------------------------- */
+ 
+.coluna {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  min-width: 0; /* impede que o conteúdo force a trilha do grid a crescer */
+  background: var(--cor-superficie-alt);
+  border-radius: var(--raio-md);
+  padding: var(--espaco-3);
+  border-top: 4px solid var(--cor-status-a-fazer);
+}
+ 
+.coluna--a-fazer {
+  border-top-color: var(--cor-status-a-fazer);
+}
+.coluna--em-andamento {
+  border-top-color: var(--cor-status-andamento);
+}
+.coluna--em-revisao {
+  border-top-color: var(--cor-status-revisao);
+}
+.coluna--concluida {
+  border-top-color: var(--cor-status-concluida);
+}
+ 
+.coluna h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--cor-texto-suave);
+}
+ 
+/* Marcador de status: puramente decorativo (a cor já está redundante com
+   o texto do h3 e com a borda superior da coluna), por isso fica em
+   ::before em vez de exigir texto alternativo */
+.coluna h3::before {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.coluna--a-fazer h3::before {
+  background: var(--cor-status-a-fazer);
+}
+.coluna--em-andamento h3::before {
+  background: var(--cor-status-andamento);
+}
+.coluna--em-revisao h3::before {
+  background: var(--cor-status-revisao);
+}
+.coluna--concluida h3::before {
+  background: var(--cor-status-concluida);
+}
+ 
+.cartoes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+ 
+/* --------------------------------------------------------------------------
+   9. Cartão de tarefa — Flexbox em coluna
+   -------------------------------------------------------------------------- */
+ 
+.cartao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  min-width: 0;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+  padding: var(--espaco-3);
+}
+ 
+.cartao h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  /* Título ocupa o espaço livre do cartão e trunca em vez de estourar.
+     min-width: 0 é o que permite o item flex encolher abaixo do
+     tamanho do conteúdo — sem ele o ellipsis nunca aparece. */
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 
+.cartao p {
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+}
+ 
+.cartao p strong {
+  color: var(--cor-texto);
+}
+ 
+/* Prazo fixado na base do cartão, mesmo quando os cartões vizinhos têm
+   alturas diferentes dentro da mesma coluna flex */
+.cartao .prazo {
+  margin-top: auto;
+  padding-top: var(--espaco-1);
+}
+ 
+/* Prioridade como selo, visível de relance */
+.cartao .prioridade {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.cartao .prioridade strong {
+  color: inherit;
+  font-weight: 700;
+}
+.prioridade--alta {
+  background: var(--cor-prioridade-alta-fundo);
+  color: var(--cor-prioridade-alta-texto);
+}
+.prioridade--media {
+  background: var(--cor-prioridade-media-fundo);
+  color: var(--cor-prioridade-media-texto);
+}
+.prioridade--baixa {
+  background: var(--cor-prioridade-baixa-fundo);
+  color: var(--cor-prioridade-baixa-texto);
+}
+ 
+/* Breakpoint: a partir de 1100px cada coluna do quadro já tem espaço de
+   sobra (quatro colunas cabem com folga), então os cartões ganham mais
+   respiro interno em vez de ficarem com a mesma densidade da tela
+   estreita. */
+@media (min-width: 1100px) {
+  .cartao {
+    padding: var(--espaco-4);
+    gap: var(--espaco-2);
+  }
+}
+ 
+/* --------------------------------------------------------------------------
+   10. Rodapé
+   -------------------------------------------------------------------------- */
+ 
+footer {
+  text-align: center;
+  padding: var(--espaco-4) var(--espaco-3);
+  color: var(--cor-texto-suave);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--cor-borda);
+}
+ 
