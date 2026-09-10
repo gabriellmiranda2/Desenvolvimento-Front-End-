@@ -1,0 +1,76 @@
+{
+  "tarefas": [
+    {
+      "id": "t1",
+      "titulo": "Definir requisitos do projeto",
+      "projeto": "Sistema Acadêmico",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "15/08/2026",
+      "status": "a-fazer",
+      "prioridade": "alta"
+    },
+    {
+      "id": "t2",
+      "titulo": "Criar modelo do banco de dados",
+      "projeto": "Sistema Acadêmico",
+      "responsavel": "Ana Souza",
+      "prazo": "18/08/2026",
+      "status": "a-fazer",
+      "prioridade": "media"
+    },
+    {
+      "id": "t3",
+      "titulo": "Desenvolver tela de login",
+      "projeto": "Portal Universitário",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "20/08/2026",
+      "status": "em-andamento",
+      "prioridade": "alta"
+    },
+    {
+      "id": "t4",
+      "titulo": "Implementar cadastro de usuários",
+      "projeto": "Portal Universitário",
+      "responsavel": "João Silva",
+      "prazo": "22/08/2026",
+      "status": "em-andamento",
+      "prioridade": "media"
+    },
+    {
+      "id": "t5",
+      "titulo": "Revisar documentação da API",
+      "projeto": "Sistema de Biblioteca",
+      "responsavel": "Maria Oliveira",
+      "prazo": "25/08/2026",
+      "status": "em-revisao",
+      "prioridade": "baixa"
+    },
+    {
+      "id": "t6",
+      "titulo": "Testar fluxo de empréstimos",
+      "projeto": "Sistema de Biblioteca",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "26/08/2026",
+      "status": "em-revisao",
+      "prioridade": "alta"
+    },
+    {
+      "id": "t7",
+      "titulo": "Criar protótipo da interface",
+      "projeto": "Age Free",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "05/08/2026",
+      "status": "concluida",
+      "prioridade": "media"
+    },
+    {
+      "id": "t8",
+      "titulo": "Escrever documentação inicial",
+      "projeto": "Age Free",
+      "responsavel": "Ana Souza",
+      "prazo": "07/08/2026",
+      "status": "concluida",
+      "prioridade": "baixa"
+    }
+  ]
+}

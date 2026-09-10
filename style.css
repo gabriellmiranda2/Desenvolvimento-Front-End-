@@ -200,6 +200,19 @@ main h2 {
 .filtros button:hover {
   background: #1e40af;
 }
+
+/* Ação secundária — visualmente distinta do botão principal para não
+   competir por atenção com os controles de busca/filtro, que agora
+   respondem em tempo real e não dependem mais de um botão "Aplicar" */
+.filtros button.botao-secundario {
+  background: var(--cor-superficie-alt);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+}
+
+.filtros button.botao-secundario:hover {
+  background: var(--cor-borda);
+}
  
 /* Breakpoint: a partir de 600px o formulário tem largura sobrando para
    colocar os três controles lado a lado, sem espremer os rótulos —
