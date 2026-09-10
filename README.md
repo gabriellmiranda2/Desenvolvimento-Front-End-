@@ -5,8 +5,7 @@ aplicação, busca, filtros, ordenação e publicação.
 
 ## Aplicação publicada
 
-🔗 **URL pública (GitHub Pages):** SUBSTITUA-ESTE-TEXTO-PELA-URL — ex.: `https://SEU-USUARIO.github.io/Desenvolvimento-Front-End-/`
-
+🔗 **URL pública (GitHub Pages):** https://gabriellmiranda2.github.io/Desenvolvimento-Front-End-/
 ## Como rodar localmente
 
 Como os módulos usam `import`/`export`, é preciso servir os arquivos
