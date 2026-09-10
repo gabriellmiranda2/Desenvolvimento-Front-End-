@@ -6,8 +6,7 @@
 export async function carregarTarefas() {
   const resposta = await fetch("dados.json");
 
-  // response.ok é falso para 404, 500 etc. — o fetch NÃO rejeita a
-  // promise nesses casos, então precisamos checar e lançar nós mesmos.
+  // response.ok é falso para 404, 500 etc. — o fetch NÃO rejeita a promise nesses casos, então precisamos checar e lançar nós mesmos.
   if (!resposta.ok) {
     const erro = new Error(
       `O servidor respondeu com status ${resposta.status}.`
