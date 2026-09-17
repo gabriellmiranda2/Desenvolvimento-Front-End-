@@ -1,0 +1,76 @@
+{
+  "tarefas": [
+    {
+      "id": "t1",
+      "titulo": "Diagnóstico eletrônico do sistema híbrido",
+      "projeto": "SF90 Stradale",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "22/09/2026",
+      "status": "a-fazer",
+      "prioridade": "alta"
+    },
+    {
+      "id": "t2",
+      "titulo": "Alinhamento e balanceamento de rodas forjadas",
+      "projeto": "812 Superfast",
+      "responsavel": "Ana Souza",
+      "prazo": "25/09/2026",
+      "status": "a-fazer",
+      "prioridade": "media"
+    },
+    {
+      "id": "t3",
+      "titulo": "Troca do kit de embreagem em carbono",
+      "projeto": "296 GTB",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "20/09/2026",
+      "status": "em-andamento",
+      "prioridade": "alta"
+    },
+    {
+      "id": "t4",
+      "titulo": "Atualização do software de gerenciamento do motor",
+      "projeto": "Roma",
+      "responsavel": "João Silva",
+      "prazo": "24/09/2026",
+      "status": "em-andamento",
+      "prioridade": "media"
+    },
+    {
+      "id": "t5",
+      "titulo": "Inspeção estética da pintura e revestimento",
+      "projeto": "F8 Tributo",
+      "responsavel": "Maria Oliveira",
+      "prazo": "28/09/2026",
+      "status": "em-revisao",
+      "prioridade": "baixa"
+    },
+    {
+      "id": "t6",
+      "titulo": "Teste dinamométrico de potência",
+      "projeto": "Daytona SP3",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "30/09/2026",
+      "status": "em-revisao",
+      "prioridade": "alta"
+    },
+    {
+      "id": "t7",
+      "titulo": "Detalhamento completo da carroceria",
+      "projeto": "Purosangue",
+      "responsavel": "Gabriel Miranda",
+      "prazo": "10/09/2026",
+      "status": "concluida",
+      "prioridade": "media"
+    },
+    {
+      "id": "t8",
+      "titulo": "Certificação final de entrega ao cliente",
+      "projeto": "LaFerrari",
+      "responsavel": "Ana Souza",
+      "prazo": "12/09/2026",
+      "status": "concluida",
+      "prioridade": "baixa"
+    }
+  ]
+}
