@@ -3,347 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automotive Performance Management — Gestão de Frota Premium</title>
+    <title>Gestão Automotiva — Centro de Performance</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="aplicacao">
+        <aside class="barra-lateral" aria-label="Navegação principal">
+            <a class="marca" href="#inicio" aria-label="Gestão Automotiva — voltar ao início">
+                <span class="marca__simbolo" aria-hidden="true">◆</span>
+                <span>
+                    <strong>GESTÃO AUTOMOTIVA</strong>
+                    <small>Performance em cada detalhe</small>
+                </span>
+            </a>
 
-    <header class="hero revelar" data-revelar-grupo="hero">
-        <div class="hero__conteudo">
-            <p class="hero__etiqueta">Private Collection Management</p>
+            <nav class="navegacao">
+                <a class="navegacao__link navegacao__link--ativo" href="#inicio">
+                    <span aria-hidden="true">⌂</span> Início
+                </a>
+                <a class="navegacao__link" href="#painel">
+                    <span aria-hidden="true">▣</span> Veículos
+                </a>
+                <a class="navegacao__link" href="#operacoes">
+                    <span aria-hidden="true">⌁</span> Operações
+                </a>
+                <a class="navegacao__link" href="#visao">
+                    <span aria-hidden="true">◇</span> Especialistas
+                </a>
+                <a class="navegacao__link" href="#desempenho">
+                    <span aria-hidden="true">▥</span> Relatórios
+                </a>
+                <a class="navegacao__link" href="#rodape">
+                    <span aria-hidden="true">⚙</span> Configurações
+                </a>
+            </nav>
 
-            <h1 class="hero__titulo">
-                Automotive<br>
-                Performance<br>
-                Management
-            </h1>
+            <section class="garagem" aria-labelledby="titulo-garagem">
+                <h2 id="titulo-garagem">Garagem</h2>
+                <ul>
+                    <li><span class="garagem__ponto garagem__ponto--vermelho"></span>296 GTB</li>
+                    <li><span class="garagem__ponto garagem__ponto--amarelo"></span>SF90 Stradale</li>
+                    <li><span class="garagem__ponto garagem__ponto--prata"></span>Roma</li>
+                    <li><span class="garagem__ponto garagem__ponto--vermelho"></span>812 Superfast</li>
+                </ul>
+            </section>
 
-            <p class="hero__tagline">Precision in every detail.</p>
+            <p class="barra-lateral__frase">Precisão, potência e cuidado em cada quilômetro.</p>
+        </aside>
 
-            <ul class="hero__marcas">
-                <li>Your Vehicles</li>
-                <li>Your Operations</li>
-                <li>Your Performance</li>
-            </ul>
-        </div>
-
-        <div class="hero__brilho" aria-hidden="true"></div>
-    </header>
-
-    <p id="status-tarefas" role="status" aria-live="polite" class="regiao-status"></p>
-
-    <main>
-
-        <section class="dashboard revelar" aria-labelledby="titulo-dashboard">
-            <h2 id="titulo-dashboard">Fleet Overview</h2>
-
-            <ul class="dashboard__grade">
-                <li class="dashboard__item">
-                    <span class="dashboard__numero" id="contagem-total">–</span>
-                    <span class="dashboard__rotulo">Vehicles</span>
-                </li>
-                <li class="dashboard__item dashboard__item--agendado">
-                    <span class="dashboard__numero" id="contagem-agendado">–</span>
-                    <span class="dashboard__rotulo">Scheduled</span>
-                </li>
-                <li class="dashboard__item dashboard__item--servico">
-                    <span class="dashboard__numero" id="contagem-servico">–</span>
-                    <span class="dashboard__rotulo">In Service</span>
-                </li>
-                <li class="dashboard__item dashboard__item--inspecao">
-                    <span class="dashboard__numero" id="contagem-inspecao">–</span>
-                    <span class="dashboard__rotulo">Inspection</span>
-                </li>
-                <li class="dashboard__item dashboard__item--finalizado">
-                    <span class="dashboard__numero" id="contagem-finalizado">–</span>
-                    <span class="dashboard__rotulo">Completed</span>
-                </li>
-            </ul>
-        </section>
-
-        <section class="filtros revelar" aria-labelledby="titulo-filtros">
-            <h2 id="titulo-filtros">Command Center</h2>
-            <p class="filtros__subtitulo">Busca e filtros operacionais</p>
-
-            <form id="form-filtros" action="" method="get">
-
-                <div class="campo">
-                    <label for="busca">Buscar operação por título:</label>
-                    <input
-                        type="search"
-                        id="busca"
-                        name="busca"
-                        placeholder="Ex.: troca de embreagem"
-                    >
+        <div class="conteudo">
+            <header class="cabecalho" id="inicio">
+                <div class="cabecalho__status">
+                    <span class="indicador"></span>
+                    CENTRO DE PERFORMANCE
                 </div>
+                <div class="cabecalho__acoes">
+                    <span class="cabecalho__data">GARAGEM PRIVADA · 2026.2</span>
+                    <button type="button" class="botao-icone" aria-label="Notificações">●</button>
+                    <span class="perfil"><span class="perfil__avatar">GM</span><span>Gabriel Miranda<small>Gestor</small></span></span>
+                </div>
+            </header>
 
-                <fieldset class="campo">
-                    <legend>Filtrar por etapa da operação</legend>
+            <header class="hero revelar" data-revelar-grupo="hero">
+                <div class="hero__conteudo">
+                    <p class="hero__etiqueta">Sistema de gerenciamento automotivo</p>
+                    <h1 class="hero__titulo">Sua frota,<br>sempre em <span>alto nível.</span></h1>
+                    <p class="hero__tagline">Uma central de operações inspirada na engenharia de alta performance.</p>
+                    <ul class="hero__marcas">
+                        <li>Veículos</li>
+                        <li>Operações</li>
+                        <li>Performance</li>
+                    </ul>
+                </div>
+                <div class="hero__painel" aria-label="Resumo de performance">
+                    <span>PRECISÃO</span>
+                    <strong>EM CADA<br>DETALHE</strong>
+                    <i aria-hidden="true"></i>
+                </div>
+                <div class="hero__brilho" aria-hidden="true"></div>
+            </header>
 
-                    <label for="status">Etapa da operação:</label>
-                    <select id="status" name="status">
-                        <option value="">Todas as etapas</option>
-                        <option value="a-fazer">Agendado</option>
-                        <option value="em-andamento">Em serviço</option>
-                        <option value="em-revisao">Inspeção</option>
-                        <option value="concluida">Finalizado</option>
-                    </select>
-                </fieldset>
+            <p id="status-tarefas" role="status" aria-live="polite" class="regiao-status"></p>
 
-                <fieldset class="campo">
-                    <legend>Filtrar por nível de prioridade</legend>
+            <main>
+                <section class="dashboard revelar" id="painel" aria-labelledby="titulo-dashboard">
+                    <div class="secao-cabecalho">
+                        <div>
+                            <p class="secao-kicker">Visão geral</p>
+                            <h2 id="titulo-dashboard">Painel da frota</h2>
+                        </div>
+                        <p class="secao-ajuda">Indicadores calculados diretamente das operações cadastradas.</p>
+                    </div>
 
-                    <label for="prioridade">Nível de prioridade:</label>
-                    <select id="prioridade" name="prioridade">
-                        <option value="">Todas as prioridades</option>
-                        <option value="baixa">Baixa</option>
-                        <option value="media">Média</option>
-                        <option value="alta">Alta</option>
-                    </select>
-                </fieldset>
+                    <ul class="dashboard__grade">
+                        <li class="dashboard__item dashboard__item--total">
+                            <span class="dashboard__icone" aria-hidden="true">▣</span>
+                            <span class="dashboard__numero" id="contagem-total">–</span>
+                            <span class="dashboard__rotulo">Veículos em operação</span>
+                            <span class="dashboard__linha"></span>
+                        </li>
+                        <li class="dashboard__item dashboard__item--agendado">
+                            <span class="dashboard__icone" aria-hidden="true">◷</span>
+                            <span class="dashboard__numero" id="contagem-agendado">–</span>
+                            <span class="dashboard__rotulo">Agendados</span>
+                            <span class="dashboard__linha"></span>
+                        </li>
+                        <li class="dashboard__item dashboard__item--servico">
+                            <span class="dashboard__icone" aria-hidden="true">⌁</span>
+                            <span class="dashboard__numero" id="contagem-servico">–</span>
+                            <span class="dashboard__rotulo">Em serviço</span>
+                            <span class="dashboard__linha"></span>
+                        </li>
+                        <li class="dashboard__item dashboard__item--inspecao">
+                            <span class="dashboard__icone" aria-hidden="true">◇</span>
+                            <span class="dashboard__numero" id="contagem-inspecao">–</span>
+                            <span class="dashboard__rotulo">Em inspeção</span>
+                            <span class="dashboard__linha"></span>
+                        </li>
+                        <li class="dashboard__item dashboard__item--finalizado">
+                            <span class="dashboard__icone" aria-hidden="true">✓</span>
+                            <span class="dashboard__numero" id="contagem-finalizado">–</span>
+                            <span class="dashboard__rotulo">Finalizados</span>
+                            <span class="dashboard__linha"></span>
+                        </li>
+                    </ul>
+                </section>
 
-                <fieldset class="campo">
-                    <legend>Ordenar por data prevista</legend>
+                <section class="filtros revelar" aria-labelledby="titulo-filtros">
+                    <div class="secao-cabecalho">
+                        <div>
+                            <p class="secao-kicker">Automotive Command Center</p>
+                            <h2 id="titulo-filtros">Centro de operações</h2>
+                        </div>
+                        <p class="secao-ajuda">Encontre uma operação por título, etapa ou prioridade.</p>
+                    </div>
 
-                    <label for="ordenacao">Ordenação:</label>
-                    <select id="ordenacao" name="ordenacao">
-                        <option value="">Sem ordenação</option>
-                        <option value="prazo-asc">Data mais próxima primeiro</option>
-                        <option value="prazo-desc">Data mais distante primeiro</option>
-                    </select>
-                </fieldset>
+                    <form id="form-filtros" action="" method="get">
+                        <div class="campo campo--busca">
+                            <label for="busca">Pesquisar operação</label>
+                            <input type="search" id="busca" name="busca" placeholder="Ex.: diagnóstico do motor">
+                        </div>
 
-                <button type="button" id="limpar-filtros" class="botao-secundario">Limpar filtros</button>
+                        <fieldset class="campo">
+                            <legend>Etapa da operação</legend>
+                            <label for="status">Status</label>
+                            <select id="status" name="status">
+                                <option value="">Todas as etapas</option>
+                                <option value="a-fazer">Agendado</option>
+                                <option value="em-andamento">Em serviço</option>
+                                <option value="em-revisao">Inspeção</option>
+                                <option value="concluida">Finalizado</option>
+                            </select>
+                        </fieldset>
 
-            </form>
-        </section>
+                        <fieldset class="campo">
+                            <legend>Nível de prioridade</legend>
+                            <label for="prioridade">Prioridade</label>
+                            <select id="prioridade" name="prioridade">
+                                <option value="">Todas as prioridades</option>
+                                <option value="baixa">Baixa</option>
+                                <option value="media">Média</option>
+                                <option value="alta">Alta</option>
+                            </select>
+                        </fieldset>
 
+                        <fieldset class="campo">
+                            <legend>Ordenação por data</legend>
+                            <label for="ordenacao">Ordenação</label>
+                            <select id="ordenacao" name="ordenacao">
+                                <option value="">Sem ordenação</option>
+                                <option value="prazo-asc">Data mais próxima primeiro</option>
+                                <option value="prazo-desc">Data mais distante primeiro</option>
+                            </select>
+                        </fieldset>
 
-        <section class="quadro revelar" aria-labelledby="titulo-quadro">
-            <h2 id="titulo-quadro">Painel de Operações</h2>
+                        <button type="button" id="limpar-filtros" class="botao-secundario">Limpar filtros</button>
+                    </form>
+                </section>
 
+                <section class="visao revelar" id="visao" aria-labelledby="titulo-visao">
+                    <div class="secao-cabecalho">
+                        <div>
+                            <p class="secao-kicker">Engenharia operacional</p>
+                            <h2 id="titulo-visao">Leitura da garagem</h2>
+                        </div>
+                        <p class="secao-ajuda">Distribuição atual das operações e níveis de prioridade.</p>
+                    </div>
 
-            <section class="coluna coluna--a-fazer" aria-labelledby="titulo-a-fazer">
-                <h3 id="titulo-a-fazer">Agendado</h3>
-
-                <ul class="cartoes">
-
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">SF90 Stradale</p>
-                                <span class="cartao__selo cartao__selo--alta">Alta</span>
+                    <div class="visao__grade">
+                        <article class="painel-detalhe">
+                            <div class="painel-detalhe__topo">
+                                <span>ETAPAS DA FROTA</span>
+                                <strong id="visao-total">– operações</strong>
                             </div>
-                            <h4 class="cartao__titulo">Diagnóstico eletrônico do sistema híbrido</h4>
-                            <p class="cartao__etapa">Agendado</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">Gabriel Miranda</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">22/09/2026</span>
-                                </p>
-                            </div>
-                            <p class="cartao__rodape">Operação · OP-t1</p>
+                            <ul class="barras-status">
+                                <li>
+                                    <div><span>Agendado</span><strong id="visao-agendado">–</strong></div>
+                                    <span class="barra"><i id="barra-agendado"></i></span>
+                                </li>
+                                <li>
+                                    <div><span>Em serviço</span><strong id="visao-servico">–</strong></div>
+                                    <span class="barra"><i id="barra-servico"></i></span>
+                                </li>
+                                <li>
+                                    <div><span>Inspeção</span><strong id="visao-inspecao">–</strong></div>
+                                    <span class="barra"><i id="barra-inspecao"></i></span>
+                                </li>
+                                <li>
+                                    <div><span>Finalizado</span><strong id="visao-finalizado">–</strong></div>
+                                    <span class="barra"><i id="barra-finalizado"></i></span>
+                                </li>
+                            </ul>
                         </article>
-                    </li>
 
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">812 Superfast</p>
-                                <span class="cartao__selo cartao__selo--media">Média</span>
+                        <article class="painel-detalhe painel-detalhe--prioridades">
+                            <div class="painel-detalhe__topo">
+                                <span>NÍVEIS DE PRIORIDADE</span>
+                                <strong>Leitura atual</strong>
                             </div>
-                            <h4 class="cartao__titulo">Alinhamento e balanceamento de rodas forjadas</h4>
-                            <p class="cartao__etapa">Agendado</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">Ana Souza</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">25/09/2026</span>
-                                </p>
+                            <div class="prioridades">
+                                <div class="prioridade-metrica">
+                                    <span class="prioridade-metrica__numero" id="prioridade-alta">–</span>
+                                    <span><b>Alta</b><small>atenção imediata</small></span>
+                                </div>
+                                <div class="prioridade-metrica">
+                                    <span class="prioridade-metrica__numero" id="prioridade-media">–</span>
+                                    <span><b>Média</b><small>acompanhamento</small></span>
+                                </div>
+                                <div class="prioridade-metrica">
+                                    <span class="prioridade-metrica__numero" id="prioridade-baixa">–</span>
+                                    <span><b>Baixa</b><small>rotina</small></span>
+                                </div>
                             </div>
-                            <p class="cartao__rodape">Operação · OP-t2</p>
                         </article>
-                    </li>
+                    </div>
+                </section>
 
-                </ul>
-            </section>
+                <section class="quadro revelar" id="operacoes" aria-labelledby="titulo-quadro">
+                    <div class="secao-cabecalho quadro__cabecalho">
+                        <div>
+                            <p class="secao-kicker">Mapa operacional</p>
+                            <h2 id="titulo-quadro">Operações da garagem</h2>
+                        </div>
+                        <p class="secao-ajuda">Cada cartão representa uma operação automotiva da frota.</p>
+                    </div>
 
-            <section class="coluna coluna--em-andamento" aria-labelledby="titulo-em-andamento">
-                <h3 id="titulo-em-andamento">Em serviço</h3>
+                    <section class="coluna coluna--a-fazer" aria-labelledby="titulo-a-fazer">
+                        <div class="coluna__cabecalho">
+                            <div><span class="coluna__marcador">◷</span><h3 id="titulo-a-fazer">Agendado</h3></div>
+                            <span class="coluna__numero" aria-label="Quantidade de operações agendadas">–</span>
+                        </div>
+                        <p class="coluna__descricao">Operações programadas para execução.</p>
+                        <ul class="cartoes">
+                            <li><article class="cartao">
+                                <div class="cartao__cabecalho"><p class="cartao__veiculo">SF90 Stradale</p><span class="cartao__selo cartao__selo--alta">Alta</span></div>
+                                <h4 class="cartao__titulo">Diagnóstico eletrônico do sistema híbrido</h4><p class="cartao__etapa">Agendado</p>
+                                <div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">22/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t1</p>
+                            </article></li>
+                            <li><article class="cartao">
+                                <div class="cartao__cabecalho"><p class="cartao__veiculo">812 Superfast</p><span class="cartao__selo cartao__selo--media">Média</span></div>
+                                <h4 class="cartao__titulo">Alinhamento e balanceamento de rodas forjadas</h4><p class="cartao__etapa">Agendado</p>
+                                <div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Ana Souza</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">25/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t2</p>
+                            </article></li>
+                        </ul>
+                    </section>
 
-                <ul class="cartoes">
+                    <section class="coluna coluna--em-andamento" aria-labelledby="titulo-em-andamento">
+                        <div class="coluna__cabecalho"><div><span class="coluna__marcador">⌁</span><h3 id="titulo-em-andamento">Em serviço</h3></div><span class="coluna__numero" aria-label="Quantidade de operações em serviço">–</span></div>
+                        <p class="coluna__descricao">Veículos atualmente em manutenção.</p>
+                        <ul class="cartoes">
+                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">296 GTB</p><span class="cartao__selo cartao__selo--alta">Alta</span></div><h4 class="cartao__titulo">Troca do kit de embreagem em carbono</h4><p class="cartao__etapa">Em serviço</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">20/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t3</p></article></li>
+                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">Roma</p><span class="cartao__selo cartao__selo--media">Média</span></div><h4 class="cartao__titulo">Atualização do software de gerenciamento do motor</h4><p class="cartao__etapa">Em serviço</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">João Silva</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">24/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t4</p></article></li>
+                        </ul>
+                    </section>
 
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">296 GTB</p>
-                                <span class="cartao__selo cartao__selo--alta">Alta</span>
-                            </div>
-                            <h4 class="cartao__titulo">Troca do kit de embreagem em carbono</h4>
-                            <p class="cartao__etapa">Em serviço</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">Gabriel Miranda</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">20/09/2026</span>
-                                </p>
-                            </div>
-                            <p class="cartao__rodape">Operação · OP-t3</p>
-                        </article>
-                    </li>
+                    <section class="coluna coluna--em-revisao" aria-labelledby="titulo-em-revisao">
+                        <div class="coluna__cabecalho"><div><span class="coluna__marcador">◇</span><h3 id="titulo-em-revisao">Inspeção</h3></div><span class="coluna__numero" aria-label="Quantidade de operações em inspeção">–</span></div>
+                        <p class="coluna__descricao">Verificações antes da liberação.</p>
+                        <ul class="cartoes">
+                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">F8 Tributo</p><span class="cartao__selo cartao__selo--baixa">Baixa</span></div><h4 class="cartao__titulo">Inspeção estética da pintura e revestimento</h4><p class="cartao__etapa">Inspeção</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Maria Oliveira</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">28/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t5</p></article></li>
+                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">Daytona SP3</p><span class="cartao__selo cartao__selo--alta">Alta</span></div><h4 class="cartao__titulo">Teste dinamométrico de potência</h4><p class="cartao__etapa">Inspeção</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">30/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t6</p></article></li>
+                        </ul>
+                    </section>
 
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">Roma</p>
-                                <span class="cartao__selo cartao__selo--media">Média</span>
-                            </div>
-                            <h4 class="cartao__titulo">Atualização do software de gerenciamento do motor</h4>
-                            <p class="cartao__etapa">Em serviço</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">João Silva</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">24/09/2026</span>
-                                </p>
-                            </div>
-                            <p class="cartao__rodape">Operação · OP-t4</p>
-                        </article>
-                    </li>
+                    <section class="coluna coluna--concluida" aria-labelledby="titulo-concluida">
+                        <div class="coluna__cabecalho"><div><span class="coluna__marcador">✓</span><h3 id="titulo-concluida">Finalizado</h3></div><span class="coluna__numero" aria-label="Quantidade de operações finalizadas">–</span></div>
+                        <p class="coluna__descricao">Operações concluídas e liberadas.</p>
+                        <ul class="cartoes">
+                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">Purosangue</p><span class="cartao__selo cartao__selo--media">Média</span></div><h4 class="cartao__titulo">Detalhamento completo da carroceria</h4><p class="cartao__etapa">Finalizado</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">10/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t7</p></article></li>
+                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">LaFerrari</p><span class="cartao__selo cartao__selo--baixa">Baixa</span></div><h4 class="cartao__titulo">Certificação final de entrega ao cliente</h4><p class="cartao__etapa">Finalizado</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Ana Souza</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">12/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t8</p></article></li>
+                        </ul>
+                    </section>
+                </section>
 
-                </ul>
-            </section>
+                <section class="desempenho revelar" id="desempenho" aria-labelledby="titulo-desempenho">
+                    <div class="secao-cabecalho">
+                        <div>
+                            <p class="secao-kicker">Performance</p>
+                            <h2 id="titulo-desempenho">Painel de precisão</h2>
+                        </div>
+                        <p class="secao-ajuda">Indicadores complementares derivados da mesma base de operações.</p>
+                    </div>
+                    <div class="desempenho__grade">
+                        <article class="desempenho__card"><span>OPERAÇÕES TOTAIS</span><strong id="desempenho-total">–</strong><small>registradas na garagem</small></article>
+                        <article class="desempenho__card desempenho__card--alerta"><span>PRIORIDADE ALTA</span><strong id="desempenho-alta">–</strong><small>operações que exigem atenção</small></article>
+                        <article class="desempenho__card"><span>ESPECIALISTAS</span><strong id="desempenho-especialistas">–</strong><small>profissionais envolvidos</small></article>
+                        <article class="desempenho__assinatura"><span>ENGENHARIA ITALIANA</span><strong>Performance em cada detalhe.</strong><i aria-hidden="true"></i></article>
+                    </div>
+                </section>
+            </main>
 
-
-            <section class="coluna coluna--em-revisao" aria-labelledby="titulo-em-revisao">
-                <h3 id="titulo-em-revisao">Inspeção</h3>
-
-                <ul class="cartoes">
-
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">F8 Tributo</p>
-                                <span class="cartao__selo cartao__selo--baixa">Baixa</span>
-                            </div>
-                            <h4 class="cartao__titulo">Inspeção estética da pintura e revestimento</h4>
-                            <p class="cartao__etapa">Inspeção</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">Maria Oliveira</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">28/09/2026</span>
-                                </p>
-                            </div>
-                            <p class="cartao__rodape">Operação · OP-t5</p>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">Daytona SP3</p>
-                                <span class="cartao__selo cartao__selo--alta">Alta</span>
-                            </div>
-                            <h4 class="cartao__titulo">Teste dinamométrico de potência</h4>
-                            <p class="cartao__etapa">Inspeção</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">Gabriel Miranda</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">30/09/2026</span>
-                                </p>
-                            </div>
-                            <p class="cartao__rodape">Operação · OP-t6</p>
-                        </article>
-                    </li>
-
-                </ul>
-            </section>
-
-
-            <section class="coluna coluna--concluida" aria-labelledby="titulo-concluida">
-                <h3 id="titulo-concluida">Finalizado</h3>
-
-                <ul class="cartoes">
-
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">Purosangue</p>
-                                <span class="cartao__selo cartao__selo--media">Média</span>
-                            </div>
-                            <h4 class="cartao__titulo">Detalhamento completo da carroceria</h4>
-                            <p class="cartao__etapa">Finalizado</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">Gabriel Miranda</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">10/09/2026</span>
-                                </p>
-                            </div>
-                            <p class="cartao__rodape">Operação · OP-t7</p>
-                        </article>
-                    </li>
-
-                    <li>
-                        <article class="cartao">
-                            <div class="cartao__cabecalho">
-                                <p class="cartao__veiculo">LaFerrari</p>
-                                <span class="cartao__selo cartao__selo--baixa">Baixa</span>
-                            </div>
-                            <h4 class="cartao__titulo">Certificação final de entrega ao cliente</h4>
-                            <p class="cartao__etapa">Finalizado</p>
-                            <div class="cartao__detalhes">
-                                <p class="cartao__campo">
-                                    <strong class="cartao__rotulo">Especialista</strong>
-                                    <span class="cartao__valor">Ana Souza</span>
-                                </p>
-                                <p class="cartao__campo cartao__campo--prazo">
-                                    <strong class="cartao__rotulo">Data prevista</strong>
-                                    <span class="cartao__valor">12/09/2026</span>
-                                </p>
-                            </div>
-                            <p class="cartao__rodape">Operação · OP-t8</p>
-                        </article>
-                    </li>
-
-                </ul>
-            </section>
-
-        </section>
-
-    </main>
-
-
-    <footer class="rodape">
-        <p class="rodape__marca">Automotive Performance Management</p>
-        <p class="rodape__creditos">Developed for Desenvolvimento Frontend — 2026.2</p>
-        <p class="rodape__autor">Gabriel Miranda</p>
-    </footer>
+            <footer class="rodape" id="rodape">
+                <div>
+                    <p class="rodape__marca">Gestão Automotiva</p>
+                    <p class="rodape__creditos">Desenvolvimento Frontend — 2026.2</p>
+                </div>
+                <p class="rodape__autor">Gabriel Miranda · Centro de Performance</p>
+            </footer>
+        </div>
+    </div>
 
     <script type="module" src="js/main.js"></script>
 </body>

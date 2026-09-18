@@ -1,11 +1,8 @@
 // js/estados.js
-// Ponto único de renderização (E4). Decide qual das telas está
-// valendo — carregando, erro, origem vazia, resultado vazio ou
-// sucesso — sempre a partir do objeto de estado inteiro. Nenhuma
-// requisição e nenhum cálculo de filtro acontece aqui: quem decide
-// o que é visível é derivarTarefasVisiveis(); este módulo só projeta
-// esse resultado na tela (cartões + painel Fleet Overview) e mantém
-// a região de status anunciando o que mudou.
+// Ponto único de renderização (E4). A interface é sempre uma projeção
+// do objeto de estado: carregamento, erro, origem vazia, resultado vazio
+// ou sucesso. Os painéis extras do redesign também são calculados a
+// partir de estado.tarefas, sem criar uma segunda fonte de verdade.
 
 import { renderizarTarefas } from "./renderizacao.js";
 import { derivarTarefasVisiveis, contarPorStatus } from "./derivacao.js";
@@ -19,9 +16,33 @@ const elementoContagemServico = document.getElementById("contagem-servico");
 const elementoContagemInspecao = document.getElementById("contagem-inspecao");
 const elementoContagemFinalizado = document.getElementById("contagem-finalizado");
 
-// O parágrafo de mensagem (carregando/erro/vazio) não existe no HTML
-// original — é criado uma única vez, na primeira vez que é preciso,
-// e reaproveitado depois. Isso evita duplicar markup no arquivo .html.
+const colunas = {
+  "a-fazer": document.querySelector(".coluna--a-fazer .coluna__numero"),
+  "em-andamento": document.querySelector(".coluna--em-andamento .coluna__numero"),
+  "em-revisao": document.querySelector(".coluna--em-revisao .coluna__numero"),
+  concluida: document.querySelector(".coluna--concluida .coluna__numero"),
+};
+
+const visaoTotal = document.getElementById("visao-total");
+const visaoAgendado = document.getElementById("visao-agendado");
+const visaoServico = document.getElementById("visao-servico");
+const visaoInspecao = document.getElementById("visao-inspecao");
+const visaoFinalizado = document.getElementById("visao-finalizado");
+
+const barras = {
+  "a-fazer": document.getElementById("barra-agendado"),
+  "em-andamento": document.getElementById("barra-servico"),
+  "em-revisao": document.getElementById("barra-inspecao"),
+  concluida: document.getElementById("barra-finalizado"),
+};
+
+const prioridadeAlta = document.getElementById("prioridade-alta");
+const prioridadeMedia = document.getElementById("prioridade-media");
+const prioridadeBaixa = document.getElementById("prioridade-baixa");
+const desempenhoTotal = document.getElementById("desempenho-total");
+const desempenhoAlta = document.getElementById("desempenho-alta");
+const desempenhoEspecialistas = document.getElementById("desempenho-especialistas");
+
 let elementoMensagem = null;
 
 function obterElementoMensagem() {
@@ -54,18 +75,25 @@ function esconderMensagem() {
 }
 
 function anunciar(texto) {
-  // textContent, nunca innerHTML — evita reflow desnecessário e
-  // qualquer risco de injeção de HTML vindo dos dados. O elemento já
-  // tem role="status" e aria-live="polite" no HTML: só o texto muda,
-  // então o foco do teclado nunca é movido por esta função.
   regiaoStatus.textContent = texto;
 }
 
-// Projeta o painel "Fleet Overview" a partir de estado.tarefas (a
-// lista bruta, não a filtrada — o painel mostra a frota inteira,
-// independentemente da busca/filtros ativos no momento). Nunca cria
-// uma segunda fonte de dados: os números vêm de contarPorStatus(),
-// chamada de novo a cada renderização.
+function contarPrioridades(tarefas) {
+  return tarefas.reduce(
+    (contagem, tarefa) => {
+      if (contagem[tarefa.prioridade] !== undefined) {
+        contagem[tarefa.prioridade] += 1;
+      }
+      return contagem;
+    },
+    { alta: 0, media: 0, baixa: 0 }
+  );
+}
+
+function contarEspecialistas(tarefas) {
+  return new Set(tarefas.map((tarefa) => tarefa.responsavel).filter(Boolean)).size;
+}
+
 function atualizarDashboard(tarefas) {
   const contagem = contarPorStatus(tarefas);
 
@@ -74,11 +102,33 @@ function atualizarDashboard(tarefas) {
   elementoContagemServico.textContent = contagem["em-andamento"];
   elementoContagemInspecao.textContent = contagem["em-revisao"];
   elementoContagemFinalizado.textContent = contagem.concluida;
+
+  Object.entries(colunas).forEach(([status, elemento]) => {
+    if (elemento) elemento.textContent = contagem[status];
+  });
+
+  const total = tarefas.length || 1;
+  visaoTotal.textContent = `${tarefas.length} ${tarefas.length === 1 ? "operação" : "operações"}`;
+  visaoAgendado.textContent = contagem["a-fazer"];
+  visaoServico.textContent = contagem["em-andamento"];
+  visaoInspecao.textContent = contagem["em-revisao"];
+  visaoFinalizado.textContent = contagem.concluida;
+
+  barras["a-fazer"].style.width = `${(contagem["a-fazer"] / total) * 100}%`;
+  barras["em-andamento"].style.width = `${(contagem["em-andamento"] / total) * 100}%`;
+  barras["em-revisao"].style.width = `${(contagem["em-revisao"] / total) * 100}%`;
+  barras.concluida.style.width = `${(contagem.concluida / total) * 100}%`;
+
+  const prioridades = contarPrioridades(tarefas);
+  prioridadeAlta.textContent = prioridades.alta;
+  prioridadeMedia.textContent = prioridades.media;
+  prioridadeBaixa.textContent = prioridades.baixa;
+
+  desempenhoTotal.textContent = tarefas.length;
+  desempenhoAlta.textContent = prioridades.alta;
+  desempenhoEspecialistas.textContent = contarEspecialistas(tarefas);
 }
 
-// Enquanto os dados ainda não chegaram, o painel mostra travessões em
-// vez de "0" — "0" sugeriria uma frota vazia, o que ainda não é
-// verdade, apenas ainda não sabemos.
 function limparDashboard() {
   [
     elementoContagemTotal,
@@ -86,15 +136,27 @@ function limparDashboard() {
     elementoContagemServico,
     elementoContagemInspecao,
     elementoContagemFinalizado,
+    visaoTotal,
+    visaoAgendado,
+    visaoServico,
+    visaoInspecao,
+    visaoFinalizado,
+    prioridadeAlta,
+    prioridadeMedia,
+    prioridadeBaixa,
+    desempenhoTotal,
+    desempenhoAlta,
+    desempenhoEspecialistas,
+    ...Object.values(colunas),
   ].forEach((elemento) => {
-    elemento.textContent = "–";
+    if (elemento) elemento.textContent = "–";
+  });
+
+  Object.values(barras).forEach((barra) => {
+    if (barra) barra.style.width = "0%";
   });
 }
 
-// Chamado depois de QUALQUER mudança no estado — carregamento
-// inicial, busca, filtro, ordenação ou "Limpar filtros" — sempre com
-// o mesmo objeto de estado inteiro. A lista visível é calculada uma
-// única vez por chamada e alimenta cartões, contagem e mensagem.
 export function renderizar(estado) {
   if (estado.carregamento === "carregando") {
     limparDashboard();
@@ -111,9 +173,6 @@ export function renderizar(estado) {
     return;
   }
 
-  // Origem vazia: a API respondeu com sucesso, mas não existe nenhuma
-  // operação cadastrada. Isto nunca passa pelo catch — array vazio é
-  // um resultado legítimo, não uma falha.
   if (estado.tarefas.length === 0) {
     mostrarMensagem("Nenhuma operação cadastrada na frota.");
     anunciar("Nenhuma operação cadastrada na frota.");
@@ -122,9 +181,6 @@ export function renderizar(estado) {
 
   const visiveis = derivarTarefasVisiveis(estado);
 
-  // Resultado vazio: existem operações na origem, mas nenhuma combina
-  // com os critérios atuais de busca/filtro. Decidido aqui a partir
-  // da lista derivada — nunca confundido com erro de rede.
   if (visiveis.length === 0) {
     mostrarMensagem(
       "Nenhuma operação encontrada para os critérios atuais. Ajuste ou limpe os filtros."
@@ -136,5 +192,10 @@ export function renderizar(estado) {
   esconderMensagem();
   alternarColunas(true);
   renderizarTarefas(visiveis);
-  anunciar(`${visiveis.length} de ${estado.tarefas.length} operações.`);
+
+  const total = estado.tarefas.length;
+  const quantidade = visiveis.length;
+  anunciar(
+    `${quantidade} ${quantidade === 1 ? "operação encontrada" : "operações encontradas"} de ${total} ${total === 1 ? "operação" : "operações"}.`
+  );
 }

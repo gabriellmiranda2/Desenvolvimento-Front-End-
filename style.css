@@ -1,143 +1,124 @@
-/* ============================================================================
-   AUTOMOTIVE PERFORMANCE MANAGEMENT — design system
-   Base: reset + :root (design tokens) + componentes + responsividade
-   ========================================================================= */
+/* ==========================================================================
+   GESTÃO AUTOMOTIVA — DESIGN SYSTEM
+   Ferrari-inspired: preto profundo + carbono + vermelho de corrida,
+   com branco metálico e pequenos sinais amarelos/azuis/verdes por etapa.
+   ========================================================================== */
 
-html {
-  box-sizing: border-box;
-  /* font-size fica em 100% (não em px) para respeitar a configuração de
-     tamanho de fonte do usuário no navegador */
-  font-size: 100%;
-  scroll-behavior: smooth;
-}
+:root {
+  --cor-fundo: #050506;
+  --cor-fundo-2: #0a0b0d;
+  --cor-carbono: #101114;
+  --cor-superficie: rgba(15, 16, 19, 0.92);
+  --cor-superficie-elevada: rgba(25, 26, 30, 0.94);
+  --cor-superficie-hover: #25262b;
+  --cor-borda: rgba(255, 255, 255, 0.11);
+  --cor-borda-forte: rgba(255, 255, 255, 0.22);
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  --cor-texto: #f6f6f3;
+  --cor-texto-suave: #b6b7bb;
+  --cor-texto-fraco: #777980;
+  --cor-branco: #ffffff;
+  --cor-prata: #c7c9cc;
+  --cor-grafite: #45474d;
+
+  --cor-vermelho: #e10600;
+  --cor-vermelho-vivo: #ff241c;
+  --cor-vermelho-escuro: #720800;
+  --cor-vermelho-suave: rgba(225, 6, 0, 0.16);
+
+  --cor-amarelo: #f5c400;
+  --cor-azul: #18a7ff;
+  --cor-verde: #18d47b;
+
+  --cor-foco: #ffffff;
+  --cor-foco-anel: rgba(225, 6, 0, 0.55);
+
+  --cor-etapa-agendado: var(--cor-amarelo);
+  --cor-etapa-servico: var(--cor-vermelho-vivo);
+  --cor-etapa-inspecao: var(--cor-azul);
+  --cor-etapa-finalizado: var(--cor-verde);
+
+  --cor-prioridade-alta-fundo: rgba(225, 6, 0, 0.24);
+  --cor-prioridade-alta-texto: #ff9a95;
+  --cor-prioridade-media-fundo: rgba(245, 196, 0, 0.16);
+  --cor-prioridade-media-texto: #ffe37c;
+  --cor-prioridade-baixa-fundo: rgba(24, 212, 123, 0.13);
+  --cor-prioridade-baixa-texto: #7eeeb7;
+
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 0.75rem;
+  --espaco-4: 1rem;
+  --espaco-5: 1.5rem;
+  --espaco-6: 2rem;
+  --espaco-7: 3rem;
+  --espaco-8: 4.5rem;
+
+  --raio-sm: 0.4rem;
+  --raio-md: 0.75rem;
+  --raio-lg: 1.15rem;
+  --raio-xl: 1.5rem;
+
+  --fonte-base: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fonte-display: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --transicao-rapida: 160ms ease;
+  --transicao-base: 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
-body,
-h1, h2, h3, h4,
-p,
-ul,
-fieldset {
-  margin: 0;
+html {
+  scroll-behavior: smooth;
 }
-
-ul {
-  padding: 0;
-  list-style: none;
-}
-
-fieldset {
-  border: none;
-  padding: 0;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* --------------------------------------------------------------------------
-   1. Design system — propriedades personalizadas no :root
-   -------------------------------------------------------------------------- */
-
-:root {
-  /* Paleta — inspirada em garagem privada italiana: pretos profundos,
-     cinzas metálicos e um único acento vermelho, usado com moderação
-     (regra de 80% neutro / 15% branco-cinza / 5% vermelho). */
-  --cor-preto-profundo: #08080a;
-  --cor-preto-carbono: #131316;
-  --cor-superficie: #1b1b1f;
-  --cor-superficie-elevada: #232327;
-  --cor-superficie-hover: #2a2a2f;
-  --cor-borda: #303035;
-  --cor-borda-forte: #414147;
-
-  --cor-texto: #f4f4f6;
-  --cor-texto-suave: #a6a6ad;
-  --cor-texto-fraco: #6d6d75;
-
-  --cor-branco: #ffffff;
-  --cor-cinza-metalico: #9a9aa2;
-  --cor-cinza-grafite: #4a4a50;
-
-  --cor-vermelho: #d81920;
-  --cor-vermelho-escuro: #8f0f14;
-  --cor-vermelho-hover: #f2222a;
-  --cor-vermelho-suave: rgba(216, 25, 32, 0.14);
-
-  --cor-foco: #ffffff;
-  --cor-foco-anel: rgba(216, 25, 32, 0.45);
-
-  /* Cor por etapa da operação — usada em borda/marcador/selo, nunca
-     repetida como valor literal fora daqui */
-  --cor-etapa-agendado: var(--cor-cinza-grafite);
-  --cor-etapa-servico: var(--cor-vermelho);
-  --cor-etapa-inspecao: var(--cor-cinza-metalico);
-  --cor-etapa-finalizado: var(--cor-branco);
-
-  /* Pares fundo/texto de prioridade — pensados para contraste alto sobre
-     as superfícies escuras em que aparecem */
-  --cor-prioridade-alta-fundo: rgba(216, 25, 32, 0.22);
-  --cor-prioridade-alta-texto: #ff9599;
-  --cor-prioridade-media-fundo: rgba(255, 255, 255, 0.1);
-  --cor-prioridade-media-texto: #e4e4e8;
-  --cor-prioridade-baixa-fundo: rgba(255, 255, 255, 0.05);
-  --cor-prioridade-baixa-texto: #b3b3ba;
-
-  /* Escala de espaçamento */
-  --espaco-1: 0.25rem;
-  --espaco-2: 0.5rem;
-  --espaco-3: 1rem;
-  --espaco-4: 1.5rem;
-  --espaco-5: 2rem;
-  --espaco-6: 3rem;
-  --espaco-7: 4.5rem;
-
-  /* Raio de canto */
-  --raio-sm: 0.375rem;
-  --raio-md: 0.75rem;
-  --raio-lg: 1.25rem;
-
-  /* Tipografia */
-  --fonte-base: "Segoe UI", system-ui, -apple-system, "Helvetica Neue",
-    Arial, sans-serif;
-  --fonte-display: "Segoe UI", system-ui, -apple-system, "Helvetica Neue",
-    Arial, sans-serif;
-
-  /* Transições — únicas, reaproveitadas por todos os componentes */
-  --transicao-rapida: 150ms ease;
-  --transicao-base: 260ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* --------------------------------------------------------------------------
-   2. Base
-   -------------------------------------------------------------------------- */
 
 body {
-  font-family: var(--fonte-base);
-  background: var(--cor-preto-profundo);
+  min-width: 320px;
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(3, 3, 4, 0.72), rgba(3, 3, 4, 0.97) 72rem),
+    url("fundo-motor-ferrari.jpg") center top / 100% auto no-repeat,
+    var(--cor-fundo);
   color: var(--cor-texto);
-  line-height: 1.55;
+  font-family: var(--fonte-base);
   font-size: 1rem;
+  line-height: 1.55;
 }
 
-/* Foco visível e consistente em todo elemento focável — nunca removido
-   sem substituto. Anel duplo (branco + halo vermelho) garante contraste
-   tanto sobre superfícies escuras quanto sobre os selos coloridos. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 4px),
+    radial-gradient(circle at 70% 10%, rgba(225, 6, 0, 0.11), transparent 30rem);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a,
+select,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
 :focus-visible {
   outline: 3px solid var(--cor-foco);
-  outline-offset: 2px;
-  border-radius: var(--raio-sm);
+  outline-offset: 3px;
   box-shadow: 0 0 0 6px var(--cor-foco-anel);
 }
 
@@ -145,14 +126,12 @@ body {
   position: absolute;
   width: 1px;
   height: 1px;
+  margin: -1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
 
-/* Revelação progressiva no scroll — estado inicial. Se JavaScript ou
-   IntersectionObserver falharem, o CSS abaixo garante que o conteúdo
-   permaneça visível (nunca fica oculto por causa da animação). */
 .revelar {
   opacity: 0;
   transform: translateY(24px);
@@ -164,270 +143,483 @@ body {
   transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .revelar {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+.aplicacao {
+  min-height: 100vh;
 }
 
-/* --------------------------------------------------------------------------
-   3. Hero
-   -------------------------------------------------------------------------- */
+.conteudo {
+  min-width: 0;
+}
+
+/* Barra lateral compacta no mobile; cresce quando há espaço para uma
+   navegação persistente sem espremer o conteúdo principal. */
+.barra-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  padding: var(--espaco-4);
+  background: rgba(5, 6, 7, 0.96);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-3);
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.marca__simbolo {
+  display: grid;
+  width: 2.3rem;
+  height: 2.3rem;
+  place-items: center;
+  color: var(--cor-amarelo);
+  border: 1px solid var(--cor-amarelo);
+  transform: skew(-8deg);
+  font-size: 0.8rem;
+}
+
+.marca strong,
+.marca small {
+  display: block;
+}
+
+.marca strong {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+}
+
+.marca small {
+  margin-top: 0.1rem;
+  color: var(--cor-texto-fraco);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.navegacao {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espaco-2);
+}
+
+.navegacao__link {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  min-height: 44px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--raio-sm);
+  color: var(--cor-texto-suave);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: background var(--transicao-rapida), color var(--transicao-rapida), border-color var(--transicao-rapida);
+}
+
+.navegacao__link span {
+  width: 1.1rem;
+  text-align: center;
+  color: var(--cor-prata);
+}
+
+.navegacao__link:hover,
+.navegacao__link--ativo {
+  color: var(--cor-branco);
+  background: linear-gradient(90deg, rgba(225, 6, 0, 0.22), rgba(225, 6, 0, 0.03));
+  border-color: rgba(225, 6, 0, 0.4);
+}
+
+.navegacao__link--ativo span {
+  color: var(--cor-vermelho-vivo);
+}
+
+.garagem {
+  display: none;
+}
+
+.barra-lateral__frase {
+  display: none;
+}
+
+/* ==========================================================================
+   Cabeçalho + Hero
+   ========================================================================== */
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espaco-4);
+  min-height: 4.5rem;
+  padding: 0 var(--espaco-4);
+  background: rgba(5, 5, 6, 0.78);
+  border-bottom: 1px solid var(--cor-borda);
+  backdrop-filter: blur(16px);
+}
+
+.cabecalho__status,
+.cabecalho__data {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cabecalho__status {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.indicador {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--cor-verde);
+  box-shadow: 0 0 10px var(--cor-verde);
+}
+
+.cabecalho__acoes {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-3);
+}
+
+.cabecalho__data {
+  display: none;
+  color: var(--cor-texto-fraco);
+}
+
+.botao-icone {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: 50%;
+  background: var(--cor-carbono);
+  color: var(--cor-vermelho-vivo);
+  cursor: pointer;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.perfil small {
+  display: block;
+  color: var(--cor-texto-fraco);
+  font-size: 0.62rem;
+  font-weight: 500;
+}
+
+.perfil__avatar {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid var(--cor-borda-forte);
+  border-radius: 50%;
+  color: var(--cor-branco);
+  background: linear-gradient(145deg, #27282d, #090a0c);
+  font-size: 0.65rem;
+}
 
 .hero {
   position: relative;
+  min-height: 30rem;
+  display: flex;
+  align-items: flex-end;
   overflow: hidden;
+  isolation: isolate;
+  padding: var(--espaco-8) var(--espaco-4) var(--espaco-7);
   background:
-    radial-gradient(ellipse 120% 80% at 50% -10%, rgba(216, 25, 32, 0.16), transparent 60%),
-    linear-gradient(180deg, var(--cor-preto-carbono) 0%, var(--cor-preto-profundo) 100%);
-  padding: var(--espaco-7) var(--espaco-3) var(--espaco-6);
-  border-bottom: 1px solid var(--cor-borda);
-  opacity: calc(1 - (var(--progresso-scroll, 0) * 0.85));
-  transform: translateY(calc(var(--progresso-scroll, 0) * 30px));
+    linear-gradient(90deg, rgba(4,4,5,.97) 0%, rgba(4,4,5,.74) 35%, rgba(4,4,5,.16) 72%, rgba(4,4,5,.82) 100%),
+    linear-gradient(180deg, rgba(4,4,5,.1), rgba(4,4,5,.96)),
+    url("fundo-motor-ferrari.jpg") center / cover no-repeat;
+  border-bottom: 1px solid rgba(225, 6, 0, 0.48);
+  opacity: calc(1 - (var(--progresso-scroll, 0) * 0.72));
+  transform: translateY(calc(var(--progresso-scroll, 0) * 22px));
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero {
-    opacity: 1;
-    transform: none;
-  }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-vermelho), transparent 75%);
+  z-index: 2;
 }
 
 .hero__conteudo {
   position: relative;
-  z-index: 1;
-  max-width: 1400px;
-  margin-inline: auto;
+  z-index: 2;
+  width: min(100%, 65rem);
 }
 
-.hero__etiqueta {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+.hero__etiqueta,
+.secao-kicker {
+  margin: 0 0 var(--espaco-3);
+  color: var(--cor-vermelho-vivo);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.17em;
   text-transform: uppercase;
-  color: var(--cor-vermelho);
-  margin-bottom: var(--espaco-3);
 }
 
 .hero__titulo {
-  /* clamp(): mínimo, ideal (rem + vw), máximo — cresce com a viewport
-     sem depender só de vw, respeitando o zoom de fonte do usuário */
-  font-size: clamp(2.25rem, 1.4rem + 5.2vw, 5.5rem);
+  max-width: 15ch;
+  margin: 0;
   font-family: var(--fonte-display);
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 1.5rem + 5vw, 6.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
-  color: var(--cor-texto);
-  max-width: 20ch;
+}
+
+.hero__titulo span {
+  color: var(--cor-vermelho-vivo);
 }
 
 .hero__tagline {
-  margin-top: var(--espaco-4);
-  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.35rem);
+  max-width: 44rem;
+  margin: var(--espaco-5) 0 0;
   color: var(--cor-texto-suave);
-  font-style: italic;
+  font-size: clamp(1rem, 0.92rem + 0.35vw, 1.25rem);
 }
 
 .hero__marcas {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--espaco-2) var(--espaco-4);
-  margin-top: var(--espaco-5);
+  gap: var(--espaco-2) var(--espaco-5);
+  margin: var(--espaco-6) 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .hero__marcas li {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cor-cinza-metalico);
-  padding-left: var(--espaco-3);
   position: relative;
+  padding-left: 1rem;
+  color: var(--cor-prata);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .hero__marcas li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.35em;
+  top: 0.55em;
   width: 0.5rem;
   height: 2px;
-  background: var(--cor-vermelho);
+  background: var(--cor-vermelho-vivo);
+}
+
+.hero__painel {
+  display: none;
 }
 
 .hero__brilho {
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(
-      115deg,
-      rgba(255, 255, 255, 0.02) 0px,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px,
-      transparent 3px
-    );
+  z-index: 1;
   pointer-events: none;
+  background: repeating-linear-gradient(120deg, rgba(255,255,255,.018) 0 1px, transparent 1px 5px);
 }
 
-/* --------------------------------------------------------------------------
-   4. Miolo da página
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   Conteúdo principal
+   ========================================================================== */
 
 main {
-  max-width: 1400px;
+  width: min(100%, 1800px);
   margin-inline: auto;
-  padding: var(--espaco-5) var(--espaco-3) var(--espaco-7);
+  padding: var(--espaco-6) var(--espaco-4) var(--espaco-8);
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-5);
+  gap: var(--espaco-7);
 }
 
-main h2 {
-  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  margin-bottom: var(--espaco-3);
-  color: var(--cor-texto);
-}
-
-/* --------------------------------------------------------------------------
-   5. Dashboard — Fleet Overview (derivado do estado, nunca hardcoded)
-   -------------------------------------------------------------------------- */
-
-.dashboard__grade {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
-  gap: var(--espaco-3);
-}
-
-.dashboard__item {
+.secao-cabecalho {
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-1);
-  background: var(--cor-superficie);
-  border: 1px solid var(--cor-borda);
-  border-top: 3px solid var(--cor-cinza-grafite);
-  border-radius: var(--raio-md);
-  padding: var(--espaco-4) var(--espaco-3);
-}
-
-.dashboard__item--agendado {
-  border-top-color: var(--cor-etapa-agendado);
-}
-.dashboard__item--servico {
-  border-top-color: var(--cor-etapa-servico);
-}
-.dashboard__item--inspecao {
-  border-top-color: var(--cor-etapa-inspecao);
-}
-.dashboard__item--finalizado {
-  border-top-color: var(--cor-etapa-finalizado);
-}
-
-.dashboard__numero {
-  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-  color: var(--cor-texto);
-  line-height: 1;
-}
-
-.dashboard__rotulo {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--cor-texto-suave);
-}
-
-/* --------------------------------------------------------------------------
-   6. Busca e filtros — Automotive Command Center
-   -------------------------------------------------------------------------- */
-
-.filtros {
-  background:
-    linear-gradient(180deg, var(--cor-superficie) 0%, var(--cor-preto-carbono) 100%);
-  border: 1px solid var(--cor-borda);
-  border-radius: var(--raio-lg);
-  padding: var(--espaco-4);
-  position: relative;
-}
-
-.filtros::before {
-  /* Textura sutil de carbono, puramente decorativa (aria-hidden não é
-     necessário: é um pseudo-elemento, invisível para tecnologia
-     assistiva por padrão) */
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 4px),
-    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 4px);
-  pointer-events: none;
-}
-
-.filtros h2 {
-  position: relative;
-  display: flex;
-  align-items: center;
   gap: var(--espaco-2);
-}
-
-.filtros h2::before {
-  content: "";
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background: var(--cor-vermelho);
-  box-shadow: 0 0 8px 1px var(--cor-vermelho);
-  flex-shrink: 0;
-}
-
-.filtros__subtitulo {
-  position: relative;
-  font-size: 0.85rem;
-  color: var(--cor-texto-suave);
   margin-bottom: var(--espaco-4);
 }
 
-.filtros form {
+.secao-cabecalho h2 {
+  margin: 0;
+  color: var(--cor-texto);
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 2rem);
+  line-height: 1.05;
+}
+
+.secao-kicker {
+  margin-bottom: 0.4rem;
+}
+
+.secao-ajuda {
+  margin: 0;
+  max-width: 45rem;
+  color: var(--cor-texto-fraco);
+  font-size: 0.78rem;
+}
+
+.dashboard,
+.filtros,
+.visao,
+.quadro,
+.desempenho {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+}
+
+.dashboard__grade {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--espaco-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.filtros .campo {
+.dashboard__item {
+  position: relative;
+  min-width: 0;
+  min-height: 9rem;
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-1);
+  justify-content: flex-end;
+  gap: 0.35rem;
+  padding: var(--espaco-5);
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(22,23,27,.94), rgba(7,8,10,.94));
+  border: 1px solid var(--cor-borda);
+  border-top: 2px solid var(--cor-grafite);
+  border-radius: var(--raio-md);
 }
 
-.filtros label,
-.filtros legend {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+.dashboard__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.035), transparent 55%);
+  pointer-events: none;
+}
+
+.dashboard__item--agendado { border-top-color: var(--cor-amarelo); }
+.dashboard__item--servico { border-top-color: var(--cor-vermelho-vivo); }
+.dashboard__item--inspecao { border-top-color: var(--cor-azul); }
+.dashboard__item--finalizado { border-top-color: var(--cor-verde); }
+
+.dashboard__icone {
+  position: absolute;
+  top: 1rem;
+  right: 1.1rem;
+  color: var(--cor-texto-fraco);
+  font-size: 1.7rem;
+}
+
+.dashboard__item--agendado .dashboard__icone { color: var(--cor-amarelo); }
+.dashboard__item--servico .dashboard__icone { color: var(--cor-vermelho-vivo); }
+.dashboard__item--inspecao .dashboard__icone { color: var(--cor-azul); }
+.dashboard__item--finalizado .dashboard__icone { color: var(--cor-verde); }
+
+.dashboard__numero {
+  font-size: clamp(2rem, 1.4rem + 1.8vw, 3.1rem);
+  font-weight: 850;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard__rotulo {
   color: var(--cor-texto-suave);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.dashboard__linha {
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 0.45rem;
+  background: var(--cor-vermelho);
+}
+
+.dashboard__item--agendado .dashboard__linha { background: var(--cor-amarelo); }
+.dashboard__item--inspecao .dashboard__linha { background: var(--cor-azul); }
+.dashboard__item--finalizado .dashboard__linha { background: var(--cor-verde); }
+
+/* ==========================================================================
+   Filtros
+   ========================================================================== */
+
+.filtros {
+  padding: var(--espaco-5);
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.012) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, rgba(22,23,26,.95), rgba(8,9,11,.97));
+  border: 1px solid rgba(225,6,0,.34);
+  border-radius: var(--raio-xl);
+  box-shadow: 0 22px 60px rgba(0,0,0,.35);
+}
+
+.filtros::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  width: 7rem;
+  height: 2px;
+  background: var(--cor-vermelho-vivo);
+}
+
+.filtros form {
+  display: grid;
+  gap: var(--espaco-4);
+}
+
+.campo {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.campo label,
+.campo legend {
+  display: block;
+  margin-bottom: var(--espaco-2);
+  color: var(--cor-texto-suave);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.campo legend {
+  padding: 0;
 }
 
 .filtros input,
 .filtros select {
   width: 100%;
-  min-height: 2.75rem; /* alvo de toque confortável, acima de 24px */
-  padding: var(--espaco-2) var(--espaco-3);
+  min-height: 3.25rem;
+  padding: 0.7rem 1rem;
   border: 1px solid var(--cor-borda-forte);
   border-radius: var(--raio-sm);
-  font-size: 1rem;
-  font-family: inherit;
-  background: var(--cor-preto-carbono);
+  background: rgba(5,6,8,.88);
   color: var(--cor-texto);
-  transition: border-color var(--transicao-rapida);
+  font-size: 1rem;
+  transition: border-color var(--transicao-rapida), background var(--transicao-rapida);
 }
 
 .filtros input::placeholder {
@@ -436,242 +628,324 @@ main h2 {
 
 .filtros input:hover,
 .filtros select:hover {
-  border-color: var(--cor-cinza-metalico);
+  border-color: rgba(225,6,0,.65);
 }
 
 .filtros button {
-  min-height: 2.75rem;
-  padding: var(--espaco-2) var(--espaco-4);
-  border: 1px solid var(--cor-vermelho);
+  min-height: 3.25rem;
+  align-self: end;
+  padding: 0.7rem 1.3rem;
+  border: 1px solid var(--cor-vermelho-vivo);
   border-radius: var(--raio-sm);
   background: var(--cor-vermelho);
   color: var(--cor-branco);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-family: inherit;
   cursor: pointer;
-  align-self: flex-start;
-  transition: background var(--transicao-rapida), transform var(--transicao-rapida);
+  transition: transform var(--transicao-rapida), background var(--transicao-rapida), box-shadow var(--transicao-rapida);
 }
 
 .filtros button:hover {
-  background: var(--cor-vermelho-hover);
-  transform: translateY(-1px);
+  background: var(--cor-vermelho-vivo);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(225,6,0,.22);
 }
 
 .filtros button:active {
   transform: translateY(0);
 }
 
-/* Ação secundária — visualmente distinta do botão principal para não
-   competir por atenção com os controles de busca/filtro, que respondem
-   em tempo real e não dependem de um botão "Aplicar" */
 .filtros button.botao-secundario {
   background: transparent;
-  color: var(--cor-texto-suave);
-  border: 1px solid var(--cor-borda-forte);
 }
 
-.filtros button.botao-secundario:hover {
-  background: var(--cor-superficie-hover);
-  color: var(--cor-texto);
-  transform: none;
-}
+/* ==========================================================================
+   Leitura da garagem
+   ========================================================================== */
 
-/* Breakpoint: a partir de 600px o formulário tem largura sobrando para
-   colocar os controles lado a lado, sem espremer os rótulos — abaixo
-   disso o texto dos labels quebrava em duas linhas dentro do controle. */
-@media (min-width: 600px) {
-  .filtros form {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-end;
-  }
-
-  .filtros .campo {
-    flex: 1 1 200px;
-    min-width: 0;
-  }
-
-  .filtros input,
-  .filtros select {
-    width: auto;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   7. Painel de Operações — Grid
-   -------------------------------------------------------------------------- */
-
-.quadro {
+.visao__grade {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
   gap: var(--espaco-4);
 }
 
-/* O título do painel ocupa a largura inteira da grade, seja qual for o
-   número de colunas que o auto-fit criar */
-.quadro > h2 {
-  grid-column: 1 / -1;
+.painel-detalhe {
+  min-width: 0;
+  padding: var(--espaco-5);
+  background: linear-gradient(145deg, rgba(20,21,24,.95), rgba(8,9,11,.95));
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
 }
 
-/* Mensagem única de carregando/erro/vazio — ocupa a largura inteira da
-   grade e é criada dinamicamente por js/estados.js */
-#quadro-mensagem {
-  grid-column: 1 / -1;
-  background: var(--cor-superficie);
-  border: 1px dashed var(--cor-borda-forte);
-  border-radius: var(--raio-md);
-  padding: var(--espaco-5) var(--espaco-4);
-  text-align: center;
+.painel-detalhe__topo {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  padding-bottom: var(--espaco-4);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.painel-detalhe__topo span {
+  color: var(--cor-texto-fraco);
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.painel-detalhe__topo strong {
+  font-size: 0.78rem;
+}
+
+.barras-status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+  margin: var(--espaco-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.barras-status li > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  margin-bottom: 0.4rem;
   color: var(--cor-texto-suave);
-  font-size: 0.95rem;
+  font-size: 0.78rem;
 }
 
-/* --------------------------------------------------------------------------
-   8. Colunas de etapa — Flexbox em coluna
-   -------------------------------------------------------------------------- */
+.barras-status strong {
+  color: var(--cor-texto);
+}
+
+.barra {
+  display: block;
+  height: 0.42rem;
+  overflow: hidden;
+  background: #24252a;
+  border-radius: 999px;
+}
+
+.barra i {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--cor-vermelho-vivo);
+  transition: width 600ms var(--transicao-base);
+}
+
+#barra-agendado { background: var(--cor-amarelo); }
+#barra-servico { background: var(--cor-vermelho-vivo); }
+#barra-inspecao { background: var(--cor-azul); }
+#barra-finalizado { background: var(--cor-verde); }
+
+.prioridades {
+  display: grid;
+  gap: var(--espaco-3);
+  margin-top: var(--espaco-5);
+}
+
+.prioridade-metrica {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-4);
+  padding: var(--espaco-3);
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-md);
+}
+
+.prioridade-metrica__numero {
+  min-width: 2.6rem;
+  color: var(--cor-branco);
+  font-size: 1.7rem;
+  font-weight: 850;
+  line-height: 1;
+  text-align: center;
+}
+
+.prioridade-metrica b,
+.prioridade-metrica small {
+  display: block;
+}
+
+.prioridade-metrica b {
+  font-size: 0.78rem;
+}
+
+.prioridade-metrica small {
+  color: var(--cor-texto-fraco);
+  font-size: 0.68rem;
+}
+
+/* ==========================================================================
+   Quadro de operações — Grid + colunas Flexbox
+   ========================================================================== */
+
+.quadro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-4);
+}
+
+.quadro__cabecalho {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
 
 .coluna {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: var(--espaco-3);
-  min-width: 0; /* impede que o conteúdo force a trilha do grid a crescer */
-  background: var(--cor-preto-carbono);
+  min-height: 28rem;
+  padding: var(--espaco-4);
+  background:
+    linear-gradient(180deg, rgba(16,17,20,.95), rgba(5,6,8,.96)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.01) 0 1px, transparent 1px 4px);
   border: 1px solid var(--cor-borda);
+  border-top: 3px solid var(--cor-grafite);
   border-radius: var(--raio-lg);
-  padding: var(--espaco-3);
-  border-top: 3px solid var(--cor-etapa-agendado);
+  overflow: hidden;
 }
 
-.coluna--a-fazer {
-  border-top-color: var(--cor-etapa-agendado);
-}
-.coluna--em-andamento {
-  border-top-color: var(--cor-etapa-servico);
-}
-.coluna--em-revisao {
-  border-top-color: var(--cor-etapa-inspecao);
-}
-.coluna--concluida {
-  border-top-color: var(--cor-etapa-finalizado);
+.coluna--a-fazer { border-top-color: var(--cor-amarelo); }
+.coluna--em-andamento { border-top-color: var(--cor-vermelho-vivo); }
+.coluna--em-revisao { border-top-color: var(--cor-azul); }
+.coluna--concluida { border-top-color: var(--cor-verde); }
+
+.coluna__cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
 }
 
-.coluna h3 {
+.coluna__cabecalho > div {
   display: flex;
   align-items: center;
   gap: var(--espaco-2);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--cor-texto-suave);
+  min-width: 0;
 }
 
-/* Marcador de etapa: puramente decorativo (a cor já está redundante com
-   o texto do h3 e com a borda superior da coluna), por isso fica em
-   ::before em vez de exigir texto alternativo */
-.coluna h3::before {
-  content: "";
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  flex-shrink: 0;
+.coluna h3 {
+  margin: 0;
+  color: var(--cor-texto);
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
-.coluna--a-fazer h3::before {
-  background: var(--cor-etapa-agendado);
+
+.coluna__marcador {
+  font-size: 1.25rem;
 }
-.coluna--em-andamento h3::before {
-  background: var(--cor-etapa-servico);
-  box-shadow: 0 0 6px 1px rgba(216, 25, 32, 0.6);
+
+.coluna--a-fazer .coluna__marcador { color: var(--cor-amarelo); }
+.coluna--em-andamento .coluna__marcador { color: var(--cor-vermelho-vivo); }
+.coluna--em-revisao .coluna__marcador { color: var(--cor-azul); }
+.coluna--concluida .coluna__marcador { color: var(--cor-verde); }
+
+.coluna__numero {
+  min-width: 2rem;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  color: var(--cor-texto-suave);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-align: center;
 }
-.coluna--em-revisao h3::before {
-  background: var(--cor-etapa-inspecao);
-}
-.coluna--concluida h3::before {
-  background: var(--cor-etapa-finalizado);
+
+.coluna__descricao {
+  min-height: 2.6rem;
+  margin: 0;
+  padding-bottom: var(--espaco-3);
+  border-bottom: 1px solid var(--cor-borda);
+  color: var(--cor-texto-fraco);
+  font-size: 0.72rem;
 }
 
 .cartoes {
   display: flex;
   flex-direction: column;
   gap: var(--espaco-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-
-/* --------------------------------------------------------------------------
-   9. Cartão de operação — o coração da interface
-   -------------------------------------------------------------------------- */
 
 .cartao {
   position: relative;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: var(--espaco-2);
-  min-width: 0;
+  padding: var(--espaco-4);
+  overflow: hidden;
   background:
-    linear-gradient(155deg, var(--cor-superficie) 0%, var(--cor-superficie-elevada) 100%),
-    repeating-linear-gradient(65deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 3px);
+    linear-gradient(145deg, rgba(30,31,35,.96), rgba(10,11,13,.98)),
+    repeating-linear-gradient(65deg, rgba(255,255,255,.012) 0 1px, transparent 1px 4px);
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-md);
-  padding: var(--espaco-3);
-  overflow: hidden;
-  transition: transform var(--transicao-base), border-color var(--transicao-base),
-    box-shadow var(--transicao-base);
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+  transition: transform var(--transicao-base), border-color var(--transicao-base), box-shadow var(--transicao-base);
 }
 
-/* Filete vermelho que acende sutilmente no hover — a "iluminação" pedida
-   no briefing, sem exagero: 1px de destaque no topo do cartão */
+.cartao::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--cor-vermelho-vivo);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--transicao-base);
+}
+
 .cartao::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--cor-vermelho);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transicao-base);
+  right: -3rem;
+  top: -3rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(225,6,0,.13), transparent 68%);
+  pointer-events: none;
 }
 
 .cartao:hover,
 .cartao:focus-within {
   transform: translateY(-4px);
-  border-color: var(--cor-borda-forte);
-  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(216, 25, 32, 0.15);
+  border-color: rgba(225,6,0,.45);
+  box-shadow: 0 20px 42px rgba(0,0,0,.38), 0 0 22px rgba(225,6,0,.07);
 }
 
-.cartao:hover::after,
-.cartao:focus-within::after {
-  transform: scaleX(1);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cartao {
-    transition: border-color var(--transicao-rapida);
-  }
-  .cartao:hover,
-  .cartao:focus-within {
-    transform: none;
-  }
+.cartao:hover::before,
+.cartao:focus-within::before {
+  transform: scaleY(1);
 }
 
 .cartao__cabecalho {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--espaco-2);
+  gap: var(--espaco-3);
 }
 
 .cartao__veiculo {
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--cor-cinza-metalico);
   min-width: 0;
+  margin: 0;
+  color: var(--cor-prata);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -679,143 +953,457 @@ main h2 {
 
 .cartao__selo {
   flex-shrink: 0;
-  display: inline-flex;
-  padding: 0.2rem 0.6rem;
+  padding: 0.23rem 0.62rem;
   border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 0.63rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
 .cartao__selo--alta {
   background: var(--cor-prioridade-alta-fundo);
   color: var(--cor-prioridade-alta-texto);
 }
+
 .cartao__selo--media {
   background: var(--cor-prioridade-media-fundo);
   color: var(--cor-prioridade-media-texto);
 }
+
 .cartao__selo--baixa {
   background: var(--cor-prioridade-baixa-fundo);
   color: var(--cor-prioridade-baixa-texto);
 }
 
 .cartao__titulo {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.3;
+  min-width: 0;
+  margin: 0;
   color: var(--cor-texto);
-  /* Título ocupa até 2 linhas e depois trunca — min-width:0 no cartão
-     é o que permite o item flex encolher abaixo do tamanho do conteúdo */
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.28;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
 }
 
 .cartao__etapa {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  margin: 0;
+  color: var(--cor-vermelho-vivo);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--cor-vermelho);
 }
 
 .cartao__detalhes {
   display: flex;
   flex-direction: column;
-  gap: var(--espaco-1);
-  margin-top: var(--espaco-1);
+  gap: 0.35rem;
+  margin-top: 0.35rem;
 }
 
 .cartao__campo {
   display: flex;
   justify-content: space-between;
-  gap: var(--espaco-2);
-  font-size: 0.85rem;
+  gap: var(--espaco-3);
+  margin: 0;
+  font-size: 0.78rem;
 }
 
 .cartao__rotulo {
-  color: var(--cor-texto-fraco);
-  font-weight: 600;
   flex-shrink: 0;
+  color: var(--cor-texto-fraco);
+  font-weight: 700;
 }
 
 .cartao__valor {
+  min-width: 0;
   color: var(--cor-texto-suave);
   text-align: right;
-  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Data prevista fixada na base do cartão, mesmo quando os cartões
-   vizinhos têm alturas diferentes dentro da mesma coluna flex */
 .cartao__campo--prazo {
-  margin-top: auto;
-  padding-top: var(--espaco-1);
+  margin-top: var(--espaco-2);
+  padding-top: var(--espaco-2);
   border-top: 1px dashed var(--cor-borda);
 }
 
 .cartao__rodape {
-  font-size: 0.65rem;
-  letter-spacing: 0.05em;
+  margin: var(--espaco-2) 0 0;
   color: var(--cor-texto-fraco);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* Breakpoint: a partir de 1100px cada coluna do painel já tem espaço de
-   sobra (quatro colunas cabem com folga), então os cartões ganham mais
-   respiro interno em vez de ficarem com a mesma densidade da tela
-   estreita. */
-@media (min-width: 1100px) {
-  .cartao {
-    padding: var(--espaco-4);
-    gap: var(--espaco-2);
-  }
+#quadro-mensagem {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: var(--espaco-7);
+  border: 1px dashed var(--cor-borda-forte);
+  border-radius: var(--raio-lg);
+  background: var(--cor-superficie);
+  color: var(--cor-texto-suave);
+  text-align: center;
 }
 
-/* --------------------------------------------------------------------------
-   10. Rodapé
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   Performance + Footer
+   ========================================================================== */
+
+.desempenho__grade {
+  display: grid;
+  gap: var(--espaco-3);
+}
+
+.desempenho__card,
+.desempenho__assinatura {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--espaco-5);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-lg);
+  background: linear-gradient(145deg, rgba(21,22,25,.95), rgba(7,8,10,.95));
+}
+
+.desempenho__card span,
+.desempenho__assinatura span {
+  color: var(--cor-texto-fraco);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.desempenho__card strong {
+  margin: 0.5rem 0 0.2rem;
+  font-size: clamp(2rem, 1.4rem + 1.6vw, 3rem);
+  line-height: 1;
+}
+
+.desempenho__card small {
+  color: var(--cor-texto-suave);
+}
+
+.desempenho__card--alerta {
+  border-color: rgba(225,6,0,.35);
+}
+
+.desempenho__card--alerta strong {
+  color: var(--cor-vermelho-vivo);
+}
+
+.desempenho__assinatura {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(225,6,0,.2), transparent),
+    linear-gradient(145deg, rgba(35,8,8,.92), rgba(8,8,9,.96));
+}
+
+.desempenho__assinatura strong {
+  max-width: 16ch;
+  margin-top: 0.5rem;
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.desempenho__assinatura i {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cor-vermelho), var(--cor-amarelo), var(--cor-verde));
+}
 
 .rodape {
-  text-align: center;
-  padding: var(--espaco-5) var(--espaco-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  padding: var(--espaco-6) var(--espaco-4);
   border-top: 1px solid var(--cor-borda);
-  background: var(--cor-preto-carbono);
+  background: rgba(4,5,6,.96);
+}
+
+.rodape p {
+  margin: 0;
 }
 
 .rodape__marca {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
   color: var(--cor-texto);
-  margin-bottom: var(--espaco-2);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .rodape__creditos,
 .rodape__autor {
-  font-size: 0.8rem;
-  color: var(--cor-texto-suave);
+  color: var(--cor-texto-fraco);
+  font-size: 0.72rem;
 }
 
-/* --------------------------------------------------------------------------
-   11. Breakpoint adicional: telas muito estreitas (320px–374px)
-   O rótulo "Data prevista" ao lado do valor, dentro de .cartao__campo,
-   ficava espremido demais em 320px quando o valor tinha datas + rótulo
-   longos lado a lado — abaixo de 375px eles empilham para não cortar
-   texto nem forçar scroll horizontal.
-   -------------------------------------------------------------------------- */
-@media (max-width: 374px) {
-  .cartao__campo {
-    flex-direction: column;
-    gap: 0;
+/* Breakpoint: com 600px há largura suficiente para quatro filtros alinhados
+   em uma grade, evitando campos estreitos e mantendo alvos confortáveis. */
+@media (min-width: 600px) {
+  .barra-lateral {
+    padding: var(--espaco-4) var(--espaco-5);
   }
 
-  .cartao__valor {
-    text-align: left;
+  .navegacao {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero {
+    padding-inline: var(--espaco-6);
+  }
+
+  main {
+    padding-inline: var(--espaco-6);
+  }
+
+  .filtros form {
+    grid-template-columns: minmax(220px, 1.5fr) repeat(3, minmax(150px, 1fr)) auto;
+    align-items: end;
+  }
+
+  .filtros .campo--busca {
+    min-width: 0;
+  }
+
+  .filtros button {
+    white-space: nowrap;
+  }
+
+  .visao__grade {
+    grid-template-columns: 1.25fr 1fr;
+  }
+
+  .desempenho__grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rodape {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: var(--espaco-6);
+  }
+}
+
+/* Breakpoint: com 900px o quadro ganha quatro trilhas simultâneas, pois cada
+   coluna já consegue manter cartões legíveis sem causar overflow horizontal. */
+@media (min-width: 900px) {
+  .aplicacao {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+  }
+
+  .barra-lateral {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    justify-content: flex-start;
+    padding: var(--espaco-5) var(--espaco-4);
+    border-right: 1px solid var(--cor-borda);
+    border-bottom: 0;
+  }
+
+  .navegacao {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .garagem {
+    display: block;
+    margin-top: var(--espaco-4);
+    padding-top: var(--espaco-4);
+    border-top: 1px solid var(--cor-borda);
+  }
+
+  .garagem h2 {
+    margin: 0 0 var(--espaco-3);
+    color: var(--cor-texto-fraco);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .garagem ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .garagem li {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-2);
+    color: var(--cor-texto-suave);
+    font-size: 0.72rem;
+  }
+
+  .garagem__ponto {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+  }
+
+  .garagem__ponto--vermelho { background: var(--cor-vermelho-vivo); }
+  .garagem__ponto--amarelo { background: var(--cor-amarelo); }
+  .garagem__ponto--prata { background: var(--cor-prata); }
+
+  .barra-lateral__frase {
+    display: block;
+    margin: auto 0 0;
+    color: var(--cor-texto-fraco);
+    font-size: 0.68rem;
+    line-height: 1.5;
+  }
+
+  .cabecalho {
+    padding-inline: var(--espaco-6);
+  }
+
+  .cabecalho__data {
+    display: inline;
+  }
+
+  .hero {
+    min-height: 34rem;
+    padding-inline: var(--espaco-7);
+  }
+
+  .hero__painel {
+    position: absolute;
+    right: 7%;
+    bottom: 16%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+    width: 13rem;
+    padding: var(--espaco-4);
+    border-left: 2px solid var(--cor-vermelho-vivo);
+    background: rgba(4,5,6,.55);
+    backdrop-filter: blur(8px);
+  }
+
+  .hero__painel span {
+    color: var(--cor-texto-fraco);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    font-weight: 900;
+  }
+
+  .hero__painel strong {
+    font-size: 1.15rem;
+    line-height: 1.05;
+  }
+
+  .hero__painel i {
+    width: 3.5rem;
+    height: 2px;
+    background: var(--cor-vermelho-vivo);
+  }
+
+  main {
+    padding-inline: var(--espaco-7);
+  }
+
+  .quadro {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Breakpoint: com 1200px o quadro passa a quatro colunas, reproduzindo o
+   cockpit do protótipo sem reduzir a área útil dos cartões. */
+@media (min-width: 1200px) {
+  .aplicacao {
+    grid-template-columns: 16rem minmax(0, 1fr);
+  }
+
+  .dashboard__grade {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .quadro {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .coluna {
+    min-height: 35rem;
+    padding: var(--espaco-5);
+  }
+
+  .cartao {
+    padding: var(--espaco-5);
+  }
+
+  .desempenho__grade {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Breakpoint: com 1600px a área disponível permite aumentar o espaçamento
+   lateral e o respiro interno sem deixar o conteúdo excessivamente largo. */
+@media (min-width: 1600px) {
+  .hero {
+    min-height: 39rem;
+    padding-inline: var(--espaco-8);
+  }
+
+  main {
+    padding-inline: var(--espaco-8);
+  }
+
+  .dashboard__item {
+    min-height: 11rem;
+    padding: var(--espaco-6);
+  }
+
+  .filtros {
+    padding: var(--espaco-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .revelar,
+  .cartao,
+  .filtros button,
+  .barra i {
+    transition: none;
+  }
+
+  .revelar {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cartao:hover,
+  .cartao:focus-within,
+  .filtros button:hover {
+    transform: none;
   }
 }
