@@ -108,7 +108,7 @@ function atualizarDashboard(tarefas) {
   });
 
   const total = tarefas.length || 1;
-  visaoTotal.textContent = `${tarefas.length} ${tarefas.length === 1 ? "operação" : "operações"}`;
+  visaoTotal.textContent = `${tarefas.length} ${tarefas.length === 1 ? "caso" : "casos"}`;
   visaoAgendado.textContent = contagem["a-fazer"];
   visaoServico.textContent = contagem["em-andamento"];
   visaoInspecao.textContent = contagem["em-revisao"];
@@ -160,8 +160,8 @@ function limparDashboard() {
 export function renderizar(estado) {
   if (estado.carregamento === "carregando") {
     limparDashboard();
-    mostrarMensagem("Carregando operações da frota...");
-    anunciar("Carregando operações da frota...");
+    mostrarMensagem("Carregando casos do arquivo CBI...");
+    anunciar("Carregando casos do arquivo CBI...");
     return;
   }
 
@@ -174,8 +174,8 @@ export function renderizar(estado) {
   }
 
   if (estado.tarefas.length === 0) {
-    mostrarMensagem("Nenhuma operação cadastrada na frota.");
-    anunciar("Nenhuma operação cadastrada na frota.");
+    mostrarMensagem("Nenhum caso cadastrado no arquivo CBI.");
+    anunciar("Nenhum caso cadastrado no arquivo CBI.");
     return;
   }
 
@@ -183,9 +183,9 @@ export function renderizar(estado) {
 
   if (visiveis.length === 0) {
     mostrarMensagem(
-      "Nenhuma operação encontrada para os critérios atuais. Ajuste ou limpe os filtros."
+      "Nenhum caso encontrado para os critérios atuais. Ajuste ou limpe a investigação."
     );
-    anunciar("Nenhuma operação encontrada para os critérios atuais.");
+    anunciar("Nenhum caso encontrado para os critérios atuais.");
     return;
   }
 
@@ -196,6 +196,6 @@ export function renderizar(estado) {
   const total = estado.tarefas.length;
   const quantidade = visiveis.length;
   anunciar(
-    `${quantidade} ${quantidade === 1 ? "operação encontrada" : "operações encontradas"} de ${total} ${total === 1 ? "operação" : "operações"}.`
+    `${quantidade} ${quantidade === 1 ? "caso encontrado" : "casos encontrados"} de ${total} ${total === 1 ? "caso" : "casos"}.`
   );
 }

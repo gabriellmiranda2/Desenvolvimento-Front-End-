@@ -3,327 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão Automotiva — Centro de Performance</title>
+    <title>O Mentalista — Arquivo de Investigações da CBI</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="cenografia" aria-hidden="true">
+        <div class="cenografia__retrato"></div>
+        <div class="cenografia__mancha"></div>
+        <div class="cenografia__smiley"><span></span><i></i><b></b></div>
+        <div class="cenografia__linha"></div>
+    </div>
+
     <div class="aplicacao">
         <aside class="barra-lateral" aria-label="Navegação principal">
-            <a class="marca" href="#inicio" aria-label="Gestão Automotiva — voltar ao início">
-                <span class="marca__simbolo" aria-hidden="true">◆</span>
-                <span>
-                    <strong>GESTÃO AUTOMOTIVA</strong>
-                    <small>Performance em cada detalhe</small>
-                </span>
+            <a class="marca" href="#inicio" aria-label="O Mentalista — voltar ao início">
+                <img src="imagens/logo-o-mentalista.png" alt="O Mentalista" class="marca__logo">
+                <span class="marca__texto"><strong>ARQUIVO CBI</strong><small>Investigação · Observação · Evidências</small></span>
             </a>
 
-            <nav class="navegacao">
-                <a class="navegacao__link navegacao__link--ativo" href="#inicio">
-                    <span aria-hidden="true">⌂</span> Início
-                </a>
-                <a class="navegacao__link" href="#painel">
-                    <span aria-hidden="true">▣</span> Veículos
-                </a>
-                <a class="navegacao__link" href="#operacoes">
-                    <span aria-hidden="true">⌁</span> Operações
-                </a>
-                <a class="navegacao__link" href="#visao">
-                    <span aria-hidden="true">◇</span> Especialistas
-                </a>
-                <a class="navegacao__link" href="#desempenho">
-                    <span aria-hidden="true">▥</span> Relatórios
-                </a>
-                <a class="navegacao__link" href="#rodape">
-                    <span aria-hidden="true">⚙</span> Configurações
-                </a>
+            <nav class="navegacao" aria-label="Seções do arquivo">
+                <a class="navegacao__link navegacao__link--ativo" href="#inicio"><span aria-hidden="true">⌂</span> Início</a>
+                <a class="navegacao__link" href="#casos"><span aria-hidden="true">▣</span> Casos</a>
+                <a class="navegacao__link" href="#controle"><span aria-hidden="true">⌁</span> Investigação</a>
+                <a class="navegacao__link" href="#equipe"><span aria-hidden="true">◇</span> Equipe</a>
+                <a class="navegacao__link" href="#relatorios"><span aria-hidden="true">▥</span> Relatórios</a>
+                <a class="navegacao__link" href="#rodape"><span aria-hidden="true">⚙</span> Arquivo</a>
             </nav>
 
-            <section class="garagem" aria-labelledby="titulo-garagem">
-                <h2 id="titulo-garagem">Garagem</h2>
+            <section class="arquivo-lateral" aria-labelledby="titulo-arquivo-lateral">
+                <h2 id="titulo-arquivo-lateral">Arquivo atual</h2>
                 <ul>
-                    <li><span class="garagem__ponto garagem__ponto--vermelho"></span>296 GTB</li>
-                    <li><span class="garagem__ponto garagem__ponto--amarelo"></span>SF90 Stradale</li>
-                    <li><span class="garagem__ponto garagem__ponto--prata"></span>Roma</li>
-                    <li><span class="garagem__ponto garagem__ponto--vermelho"></span>812 Superfast</li>
+                    <li><span class="arquivo-lateral__ponto"></span> Casos ativos</li>
+                    <li><span class="arquivo-lateral__ponto"></span> Evidências</li>
+                    <li><span class="arquivo-lateral__ponto"></span> Depoimentos</li>
+                    <li><span class="arquivo-lateral__ponto"></span> Relatórios</li>
                 </ul>
             </section>
 
-            <p class="barra-lateral__frase">Precisão, potência e cuidado em cada quilômetro.</p>
+            <p class="barra-lateral__frase">Observe antes de concluir. Toda pista deixa uma marca.</p>
         </aside>
 
         <div class="conteudo">
             <header class="cabecalho" id="inicio">
-                <div class="cabecalho__status">
-                    <span class="indicador"></span>
-                    CENTRO DE PERFORMANCE
-                </div>
+                <div class="cabecalho__status"><span class="indicador"></span> ARQUIVO CBI · ACESSO INTERNO</div>
                 <div class="cabecalho__acoes">
-                    <span class="cabecalho__data">GARAGEM PRIVADA · 2026.2</span>
+                    <span class="cabecalho__data">SACRAMENTO · CALIFÓRNIA · 2026</span>
                     <button type="button" class="botao-icone" aria-label="Notificações">●</button>
-                    <span class="perfil"><span class="perfil__avatar">GM</span><span>Gabriel Miranda<small>Gestor</small></span></span>
+                    <span class="perfil"><span class="perfil__avatar">PJ</span><span>Patrick Jane<small>Consultor</small></span></span>
                 </div>
             </header>
 
             <header class="hero revelar" data-revelar-grupo="hero">
                 <div class="hero__conteudo">
-                    <p class="hero__etiqueta">Sistema de gerenciamento automotivo</p>
-                    <h1 class="hero__titulo">Sua frota,<br>sempre em <span>alto nível.</span></h1>
-                    <p class="hero__tagline">Uma central de operações inspirada na engenharia de alta performance.</p>
+                    <p class="hero__etiqueta">Agência de Investigação da Califórnia</p>
+                    <h1 class="hero__titulo">Leia as pistas.<br><span>Encontre a verdade.</span></h1>
+                    <p class="hero__tagline">Um arquivo de casos inspirado em <em>O Mentalista</em>, com Patrick Jane no centro da investigação.</p>
                     <ul class="hero__marcas">
-                        <li>Veículos</li>
-                        <li>Operações</li>
-                        <li>Performance</li>
+                        <li>Casos</li><li>Evidências</li><li>Depoimentos</li><li>Observação</li>
                     </ul>
                 </div>
-                <div class="hero__painel" aria-label="Resumo de performance">
-                    <span>PRECISÃO</span>
-                    <strong>EM CADA<br>DETALHE</strong>
-                    <i aria-hidden="true"></i>
-                </div>
-                <div class="hero__brilho" aria-hidden="true"></div>
+                <figure class="hero__personagem">
+                    <img src="imagens/patrick-jane.png" alt="Patrick Jane segurando uma xícara de chá" loading="eager">
+                    <figcaption><strong>Patrick Jane</strong><span>Consultor da CBI</span></figcaption>
+                </figure>
+                <div class="hero__pista" aria-hidden="true"><span>RED JOHN</span><i></i></div>
             </header>
 
             <p id="status-tarefas" role="status" aria-live="polite" class="regiao-status"></p>
 
             <main>
-                <section class="dashboard revelar" id="painel" aria-labelledby="titulo-dashboard">
+                <section class="dashboard revelar" id="casos" aria-labelledby="titulo-dashboard">
                     <div class="secao-cabecalho">
-                        <div>
-                            <p class="secao-kicker">Visão geral</p>
-                            <h2 id="titulo-dashboard">Painel da frota</h2>
-                        </div>
-                        <p class="secao-ajuda">Indicadores calculados diretamente das operações cadastradas.</p>
+                        <div><p class="secao-kicker">Leitura do arquivo</p><h2 id="titulo-dashboard">Painel de casos</h2></div>
+                        <p class="secao-ajuda">Os números abaixo acompanham diretamente os casos carregados pelo arquivo.</p>
                     </div>
-
                     <ul class="dashboard__grade">
-                        <li class="dashboard__item dashboard__item--total">
-                            <span class="dashboard__icone" aria-hidden="true">▣</span>
-                            <span class="dashboard__numero" id="contagem-total">–</span>
-                            <span class="dashboard__rotulo">Veículos em operação</span>
-                            <span class="dashboard__linha"></span>
-                        </li>
-                        <li class="dashboard__item dashboard__item--agendado">
-                            <span class="dashboard__icone" aria-hidden="true">◷</span>
-                            <span class="dashboard__numero" id="contagem-agendado">–</span>
-                            <span class="dashboard__rotulo">Agendados</span>
-                            <span class="dashboard__linha"></span>
-                        </li>
-                        <li class="dashboard__item dashboard__item--servico">
-                            <span class="dashboard__icone" aria-hidden="true">⌁</span>
-                            <span class="dashboard__numero" id="contagem-servico">–</span>
-                            <span class="dashboard__rotulo">Em serviço</span>
-                            <span class="dashboard__linha"></span>
-                        </li>
-                        <li class="dashboard__item dashboard__item--inspecao">
-                            <span class="dashboard__icone" aria-hidden="true">◇</span>
-                            <span class="dashboard__numero" id="contagem-inspecao">–</span>
-                            <span class="dashboard__rotulo">Em inspeção</span>
-                            <span class="dashboard__linha"></span>
-                        </li>
-                        <li class="dashboard__item dashboard__item--finalizado">
-                            <span class="dashboard__icone" aria-hidden="true">✓</span>
-                            <span class="dashboard__numero" id="contagem-finalizado">–</span>
-                            <span class="dashboard__rotulo">Finalizados</span>
-                            <span class="dashboard__linha"></span>
-                        </li>
+                        <li class="dashboard__item dashboard__item--total"><span class="dashboard__icone" aria-hidden="true">▣</span><span class="dashboard__numero" id="contagem-total">–</span><span class="dashboard__rotulo">Casos registrados</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--agendado"><span class="dashboard__icone" aria-hidden="true">◷</span><span class="dashboard__numero" id="contagem-agendado">–</span><span class="dashboard__rotulo">Em aberto</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--servico"><span class="dashboard__icone" aria-hidden="true">⌁</span><span class="dashboard__numero" id="contagem-servico">–</span><span class="dashboard__rotulo">Em investigação</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--inspecao"><span class="dashboard__icone" aria-hidden="true">◇</span><span class="dashboard__numero" id="contagem-inspecao">–</span><span class="dashboard__rotulo">Em análise</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--finalizado"><span class="dashboard__icone" aria-hidden="true">✓</span><span class="dashboard__numero" id="contagem-finalizado">–</span><span class="dashboard__rotulo">Encerrados</span><span class="dashboard__linha"></span></li>
                     </ul>
                 </section>
 
-                <section class="filtros revelar" aria-labelledby="titulo-filtros">
+                <section class="filtros revelar" id="controle" aria-labelledby="titulo-filtros">
                     <div class="secao-cabecalho">
-                        <div>
-                            <p class="secao-kicker">Automotive Command Center</p>
-                            <h2 id="titulo-filtros">Centro de operações</h2>
-                        </div>
-                        <p class="secao-ajuda">Encontre uma operação por título, etapa ou prioridade.</p>
+                        <div><p class="secao-kicker">Mesa de investigação</p><h2 id="titulo-filtros">Centro de controle dos casos</h2></div>
+                        <p class="secao-ajuda">Pesquise por caso, responsável, etapa ou prioridade. A lista reage enquanto você investiga.</p>
                     </div>
-
                     <form id="form-filtros" action="" method="get">
-                        <div class="campo campo--busca">
-                            <label for="busca">Pesquisar operação</label>
-                            <input type="search" id="busca" name="busca" placeholder="Ex.: diagnóstico do motor">
-                        </div>
-
-                        <fieldset class="campo">
-                            <legend>Etapa da operação</legend>
-                            <label for="status">Status</label>
-                            <select id="status" name="status">
-                                <option value="">Todas as etapas</option>
-                                <option value="a-fazer">Agendado</option>
-                                <option value="em-andamento">Em serviço</option>
-                                <option value="em-revisao">Inspeção</option>
-                                <option value="concluida">Finalizado</option>
-                            </select>
-                        </fieldset>
-
-                        <fieldset class="campo">
-                            <legend>Nível de prioridade</legend>
-                            <label for="prioridade">Prioridade</label>
-                            <select id="prioridade" name="prioridade">
-                                <option value="">Todas as prioridades</option>
-                                <option value="baixa">Baixa</option>
-                                <option value="media">Média</option>
-                                <option value="alta">Alta</option>
-                            </select>
-                        </fieldset>
-
-                        <fieldset class="campo">
-                            <legend>Ordenação por data</legend>
-                            <label for="ordenacao">Ordenação</label>
-                            <select id="ordenacao" name="ordenacao">
-                                <option value="">Sem ordenação</option>
-                                <option value="prazo-asc">Data mais próxima primeiro</option>
-                                <option value="prazo-desc">Data mais distante primeiro</option>
-                            </select>
-                        </fieldset>
-
-                        <button type="button" id="limpar-filtros" class="botao-secundario">Limpar filtros</button>
+                        <div class="campo campo--busca"><label for="busca">Pesquisar caso</label><input type="search" id="busca" name="busca" placeholder="Ex.: depoimento, evidência, desaparecimento"></div>
+                        <fieldset class="campo"><legend>Etapa</legend><label for="status">Status</label><select id="status" name="status"><option value="">Todas as etapas</option><option value="a-fazer">Em aberto</option><option value="em-andamento">Em investigação</option><option value="em-revisao">Em análise</option><option value="concluida">Encerrado</option></select></fieldset>
+                        <fieldset class="campo"><legend>Prioridade</legend><label for="prioridade">Prioridade</label><select id="prioridade" name="prioridade"><option value="">Todas as prioridades</option><option value="baixa">Baixa</option><option value="media">Média</option><option value="alta">Alta</option></select></fieldset>
+                        <fieldset class="campo"><legend>Ordenação</legend><label for="ordenacao">Ordenação</label><select id="ordenacao" name="ordenacao"><option value="">Sem ordenação</option><option value="prazo-asc">Data mais próxima primeiro</option><option value="prazo-desc">Data mais distante primeiro</option></select></fieldset>
+                        <button type="button" id="limpar-filtros" class="botao-secundario">Limpar investigação</button>
                     </form>
                 </section>
 
-                <section class="visao revelar" id="visao" aria-labelledby="titulo-visao">
-                    <div class="secao-cabecalho">
-                        <div>
-                            <p class="secao-kicker">Engenharia operacional</p>
-                            <h2 id="titulo-visao">Leitura da garagem</h2>
-                        </div>
-                        <p class="secao-ajuda">Distribuição atual das operações e níveis de prioridade.</p>
-                    </div>
-
+                <section class="visao revelar" id="relatorios" aria-labelledby="titulo-visao">
+                    <div class="secao-cabecalho"><div><p class="secao-kicker">Mapa do arquivo</p><h2 id="titulo-visao">Leitura dos casos</h2></div><p class="secao-ajuda">Uma leitura rápida das etapas e prioridades atuais, derivada da mesma base de dados.</p></div>
                     <div class="visao__grade">
-                        <article class="painel-detalhe">
-                            <div class="painel-detalhe__topo">
-                                <span>ETAPAS DA FROTA</span>
-                                <strong id="visao-total">– operações</strong>
-                            </div>
-                            <ul class="barras-status">
-                                <li>
-                                    <div><span>Agendado</span><strong id="visao-agendado">–</strong></div>
-                                    <span class="barra"><i id="barra-agendado"></i></span>
-                                </li>
-                                <li>
-                                    <div><span>Em serviço</span><strong id="visao-servico">–</strong></div>
-                                    <span class="barra"><i id="barra-servico"></i></span>
-                                </li>
-                                <li>
-                                    <div><span>Inspeção</span><strong id="visao-inspecao">–</strong></div>
-                                    <span class="barra"><i id="barra-inspecao"></i></span>
-                                </li>
-                                <li>
-                                    <div><span>Finalizado</span><strong id="visao-finalizado">–</strong></div>
-                                    <span class="barra"><i id="barra-finalizado"></i></span>
-                                </li>
-                            </ul>
-                        </article>
-
-                        <article class="painel-detalhe painel-detalhe--prioridades">
-                            <div class="painel-detalhe__topo">
-                                <span>NÍVEIS DE PRIORIDADE</span>
-                                <strong>Leitura atual</strong>
-                            </div>
-                            <div class="prioridades">
-                                <div class="prioridade-metrica">
-                                    <span class="prioridade-metrica__numero" id="prioridade-alta">–</span>
-                                    <span><b>Alta</b><small>atenção imediata</small></span>
-                                </div>
-                                <div class="prioridade-metrica">
-                                    <span class="prioridade-metrica__numero" id="prioridade-media">–</span>
-                                    <span><b>Média</b><small>acompanhamento</small></span>
-                                </div>
-                                <div class="prioridade-metrica">
-                                    <span class="prioridade-metrica__numero" id="prioridade-baixa">–</span>
-                                    <span><b>Baixa</b><small>rotina</small></span>
-                                </div>
-                            </div>
-                        </article>
+                        <article class="painel-detalhe"><div class="painel-detalhe__topo"><span>ETAPAS</span><strong id="visao-total">–</strong></div><ul class="barras-status">
+                            <li><div><span>Em aberto</span><strong id="visao-agendado">–</strong></div><span class="barra"><i id="barra-agendado"></i></span></li>
+                            <li><div><span>Em investigação</span><strong id="visao-servico">–</strong></div><span class="barra"><i id="barra-servico"></i></span></li>
+                            <li><div><span>Em análise</span><strong id="visao-inspecao">–</strong></div><span class="barra"><i id="barra-inspecao"></i></span></li>
+                            <li><div><span>Encerrados</span><strong id="visao-finalizado">–</strong></div><span class="barra"><i id="barra-finalizado"></i></span></li>
+                        </ul></article>
+                        <article class="painel-detalhe"><div class="painel-detalhe__topo"><span>PRIORIDADES</span><strong>ATENÇÃO</strong></div><div class="prioridades">
+                            <div class="prioridade-metrica prioridade-metrica--alta"><span class="prioridade-metrica__numero" id="prioridade-alta">–</span><span><b>Alta</b><small>exige análise cuidadosa</small></span></div>
+                            <div class="prioridade-metrica prioridade-metrica--media"><span class="prioridade-metrica__numero" id="prioridade-media">–</span><span><b>Média</b><small>acompanhar andamento</small></span></div>
+                            <div class="prioridade-metrica prioridade-metrica--baixa"><span class="prioridade-metrica__numero" id="prioridade-baixa">–</span><span><b>Baixa</b><small>rotina de arquivo</small></span></div>
+                        </div></article>
                     </div>
                 </section>
 
-                <section class="quadro revelar" id="operacoes" aria-labelledby="titulo-quadro">
-                    <div class="secao-cabecalho quadro__cabecalho">
-                        <div>
-                            <p class="secao-kicker">Mapa operacional</p>
-                            <h2 id="titulo-quadro">Operações da garagem</h2>
-                        </div>
-                        <p class="secao-ajuda">Cada cartão representa uma operação automotiva da frota.</p>
-                    </div>
-
-                    <section class="coluna coluna--a-fazer" aria-labelledby="titulo-a-fazer">
-                        <div class="coluna__cabecalho">
-                            <div><span class="coluna__marcador">◷</span><h3 id="titulo-a-fazer">Agendado</h3></div>
-                            <span class="coluna__numero" aria-label="Quantidade de operações agendadas">–</span>
-                        </div>
-                        <p class="coluna__descricao">Operações programadas para execução.</p>
-                        <ul class="cartoes">
-                            <li><article class="cartao">
-                                <div class="cartao__cabecalho"><p class="cartao__veiculo">SF90 Stradale</p><span class="cartao__selo cartao__selo--alta">Alta</span></div>
-                                <h4 class="cartao__titulo">Diagnóstico eletrônico do sistema híbrido</h4><p class="cartao__etapa">Agendado</p>
-                                <div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">22/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t1</p>
-                            </article></li>
-                            <li><article class="cartao">
-                                <div class="cartao__cabecalho"><p class="cartao__veiculo">812 Superfast</p><span class="cartao__selo cartao__selo--media">Média</span></div>
-                                <h4 class="cartao__titulo">Alinhamento e balanceamento de rodas forjadas</h4><p class="cartao__etapa">Agendado</p>
-                                <div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Ana Souza</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">25/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t2</p>
-                            </article></li>
-                        </ul>
-                    </section>
-
-                    <section class="coluna coluna--em-andamento" aria-labelledby="titulo-em-andamento">
-                        <div class="coluna__cabecalho"><div><span class="coluna__marcador">⌁</span><h3 id="titulo-em-andamento">Em serviço</h3></div><span class="coluna__numero" aria-label="Quantidade de operações em serviço">–</span></div>
-                        <p class="coluna__descricao">Veículos atualmente em manutenção.</p>
-                        <ul class="cartoes">
-                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">296 GTB</p><span class="cartao__selo cartao__selo--alta">Alta</span></div><h4 class="cartao__titulo">Troca do kit de embreagem em carbono</h4><p class="cartao__etapa">Em serviço</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">20/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t3</p></article></li>
-                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">Roma</p><span class="cartao__selo cartao__selo--media">Média</span></div><h4 class="cartao__titulo">Atualização do software de gerenciamento do motor</h4><p class="cartao__etapa">Em serviço</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">João Silva</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">24/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t4</p></article></li>
-                        </ul>
-                    </section>
-
-                    <section class="coluna coluna--em-revisao" aria-labelledby="titulo-em-revisao">
-                        <div class="coluna__cabecalho"><div><span class="coluna__marcador">◇</span><h3 id="titulo-em-revisao">Inspeção</h3></div><span class="coluna__numero" aria-label="Quantidade de operações em inspeção">–</span></div>
-                        <p class="coluna__descricao">Verificações antes da liberação.</p>
-                        <ul class="cartoes">
-                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">F8 Tributo</p><span class="cartao__selo cartao__selo--baixa">Baixa</span></div><h4 class="cartao__titulo">Inspeção estética da pintura e revestimento</h4><p class="cartao__etapa">Inspeção</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Maria Oliveira</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">28/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t5</p></article></li>
-                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">Daytona SP3</p><span class="cartao__selo cartao__selo--alta">Alta</span></div><h4 class="cartao__titulo">Teste dinamométrico de potência</h4><p class="cartao__etapa">Inspeção</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">30/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t6</p></article></li>
-                        </ul>
-                    </section>
-
-                    <section class="coluna coluna--concluida" aria-labelledby="titulo-concluida">
-                        <div class="coluna__cabecalho"><div><span class="coluna__marcador">✓</span><h3 id="titulo-concluida">Finalizado</h3></div><span class="coluna__numero" aria-label="Quantidade de operações finalizadas">–</span></div>
-                        <p class="coluna__descricao">Operações concluídas e liberadas.</p>
-                        <ul class="cartoes">
-                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">Purosangue</p><span class="cartao__selo cartao__selo--media">Média</span></div><h4 class="cartao__titulo">Detalhamento completo da carroceria</h4><p class="cartao__etapa">Finalizado</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Gabriel Miranda</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">10/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t7</p></article></li>
-                            <li><article class="cartao"><div class="cartao__cabecalho"><p class="cartao__veiculo">LaFerrari</p><span class="cartao__selo cartao__selo--baixa">Baixa</span></div><h4 class="cartao__titulo">Certificação final de entrega ao cliente</h4><p class="cartao__etapa">Finalizado</p><div class="cartao__detalhes"><p class="cartao__campo"><strong class="cartao__rotulo">Especialista</strong><span class="cartao__valor">Ana Souza</span></p><p class="cartao__campo cartao__campo--prazo"><strong class="cartao__rotulo">Data prevista</strong><span class="cartao__valor">12/09/2026</span></p></div><p class="cartao__rodape">Operação · OP-t8</p></article></li>
-                        </ul>
-                    </section>
+                <section class="equipe revelar" id="equipe" aria-labelledby="titulo-equipe">
+                    <div class="secao-cabecalho"><div><p class="secao-kicker">CBI</p><h2 id="titulo-equipe">Equipe de investigação</h2></div><p class="secao-ajuda">Personagens em destaque na operação do arquivo.</p></div>
+                    <ul class="equipe__grade">
+                        <li class="agente agente--destaque"><img src="imagens/patrick-jane.png" alt="Patrick Jane" loading="lazy"><div><span>Consultor</span><h3>Patrick Jane</h3><p>Observação e dedução.</p></div></li>
+                        <li class="agente"><img src="imagens/teresa-lisbon.png" alt="Teresa Lisbon" loading="lazy"><div><span>Agente sênior</span><h3>Teresa Lisbon</h3><p>Coordenação da investigação.</p></div></li>
+                        <li class="agente"><img src="imagens/kimball-cho.png" alt="Kimball Cho" loading="lazy"><div><span>Agente</span><h3>Kimball Cho</h3><p>Depoimentos e campo.</p></div></li>
+                        <li class="agente"><img src="imagens/grace-van-pelt.png" alt="Grace Van Pelt" loading="lazy"><div><span>Agente</span><h3>Grace Van Pelt</h3><p>Evidências e tecnologia.</p></div></li>
+                    </ul>
                 </section>
 
-                <section class="desempenho revelar" id="desempenho" aria-labelledby="titulo-desempenho">
-                    <div class="secao-cabecalho">
-                        <div>
-                            <p class="secao-kicker">Performance</p>
-                            <h2 id="titulo-desempenho">Painel de precisão</h2>
-                        </div>
-                        <p class="secao-ajuda">Indicadores complementares derivados da mesma base de operações.</p>
-                    </div>
+                <section class="quadro revelar" aria-labelledby="titulo-quadro">
+                    <div class="secao-cabecalho quadro__cabecalho"><div><p class="secao-kicker">Fluxo investigativo</p><h2 id="titulo-quadro">Casos em andamento</h2></div><p class="secao-ajuda">Cada cartão representa um caso do arquivo e sua etapa atual.</p></div>
+                    <section class="coluna coluna--a-fazer" aria-labelledby="titulo-a-fazer"><div class="coluna__cabecalho"><div><span class="coluna__marcador">◷</span><h3 id="titulo-a-fazer">Em aberto</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em aberto">–</span></div><p class="coluna__descricao">Casos que aguardam a próxima ação.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
+                    <section class="coluna coluna--em-andamento" aria-labelledby="titulo-em-andamento"><div class="coluna__cabecalho"><div><span class="coluna__marcador">⌁</span><h3 id="titulo-em-andamento">Em investigação</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em investigação">–</span></div><p class="coluna__descricao">Casos que estão sendo investigados pela equipe.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
+                    <section class="coluna coluna--em-revisao" aria-labelledby="titulo-em-revisao"><div class="coluna__cabecalho"><div><span class="coluna__marcador">◇</span><h3 id="titulo-em-revisao">Em análise</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em análise">–</span></div><p class="coluna__descricao">Evidências e hipóteses em revisão.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
+                    <section class="coluna coluna--concluida" aria-labelledby="titulo-concluida"><div class="coluna__cabecalho"><div><span class="coluna__marcador">✓</span><h3 id="titulo-concluida">Encerrados</h3></div><span class="coluna__numero" aria-label="Quantidade de casos encerrados">–</span></div><p class="coluna__descricao">Casos concluídos e enviados ao arquivo.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
+                </section>
+
+                <section class="desempenho revelar" aria-labelledby="titulo-desempenho">
+                    <div class="secao-cabecalho"><div><p class="secao-kicker">Fechamento</p><h2 id="titulo-desempenho">Painel do arquivo</h2></div><p class="secao-ajuda">Indicadores complementares calculados a partir dos casos carregados.</p></div>
                     <div class="desempenho__grade">
-                        <article class="desempenho__card"><span>OPERAÇÕES TOTAIS</span><strong id="desempenho-total">–</strong><small>registradas na garagem</small></article>
-                        <article class="desempenho__card desempenho__card--alerta"><span>PRIORIDADE ALTA</span><strong id="desempenho-alta">–</strong><small>operações que exigem atenção</small></article>
-                        <article class="desempenho__card"><span>ESPECIALISTAS</span><strong id="desempenho-especialistas">–</strong><small>profissionais envolvidos</small></article>
-                        <article class="desempenho__assinatura"><span>ENGENHARIA ITALIANA</span><strong>Performance em cada detalhe.</strong><i aria-hidden="true"></i></article>
+                        <article class="desempenho__card"><span>CASOS REGISTRADOS</span><strong id="desempenho-total">–</strong><small>no arquivo atual</small></article>
+                        <article class="desempenho__card desempenho__card--alerta"><span>PRIORIDADE ALTA</span><strong id="desempenho-alta">–</strong><small>casos que pedem atenção</small></article>
+                        <article class="desempenho__card"><span>INVESTIGADORES</span><strong id="desempenho-especialistas">–</strong><small>profissionais envolvidos</small></article>
+                        <article class="desempenho__assinatura"><span>O MENTALISTA</span><strong>Observe os detalhes. Eles contam a história.</strong><i aria-hidden="true"></i></article>
                     </div>
                 </section>
             </main>
 
-            <footer class="rodape" id="rodape">
-                <div>
-                    <p class="rodape__marca">Gestão Automotiva</p>
-                    <p class="rodape__creditos">Desenvolvimento Frontend — 2026.2</p>
-                </div>
-                <p class="rodape__autor">Gabriel Miranda · Centro de Performance</p>
-            </footer>
+            <footer class="rodape" id="rodape"><div><p class="rodape__marca">O Mentalista · Arquivo CBI</p><p class="rodape__creditos">Projeto acadêmico Frontend — 2026.2</p></div><p class="rodape__autor">Arquivo fictício inspirado na série de televisão.</p></footer>
         </div>
     </div>
-
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

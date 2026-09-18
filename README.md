@@ -1,80 +1,92 @@
-# Gestão Automotiva — Centro de Performance
+# O Mentalista — Arquivo CBI
 
-Etapa 4 (E4) do sistema de gestão de operações automotivas: estado único,
-busca, filtros, ordenação e publicação.
+Etapa 4 (E4) do sistema de gestão: estado único, busca, filtros, ordenação,
+estados de carregamento e publicação. O projeto recebeu um redesign completo
+para o universo de **O Mentalista**, com foco em Patrick Jane, investigação,
+evidências, depoimentos e atmosfera de arquivo policial.
 
-O projeto recebeu um redesign de UI/UX para uma experiência de garagem
-premium, inspirada no universo de alta performance automobilística, com
-fundo de motor, textura de carbono e paleta escura com vermelho de corrida.
-A identidade é original e não utiliza logotipos, emblemas ou materiais
-proprietários de terceiros.
+## O que mudou no redesign
 
-## Aplicação publicada
+- Identidade visual trocada do tema automotivo para investigação policial.
+- Interface inteira em português.
+- Patrick Jane recebe destaque no hero, no perfil e nos cartões.
+- Teresa Lisbon, Kimball Cho e Grace Van Pelt aparecem na área da equipe.
+- Cartões de casos exibem retratos dos investigadores.
+- Fundo cenográfico reage à rolagem com parallax, deslocamento do retrato e
+  aparição progressiva do símbolo associado ao Red John.
+- Removidos textos e elementos de estética futurista/IA do protótipo anterior.
+- Paleta baseada em vinho, papel envelhecido, grafite, dourado discreto e
+  tons quentes de arquivo.
+- `dados.json` foi convertido de operações automotivas para casos fictícios
+  de investigação, mantendo os valores internos de status e prioridade exigidos
+  pela arquitetura E4.
 
-🔗 **URL pública (GitHub Pages):** https://gabriellmiranda2.github.io/Desenvolvimento-Front-End-/
+## Imagens
+
+As imagens dos personagens usadas localmente em `imagens/` foram fornecidas
+pelo usuário nesta conversa. A pesquisa de referências para o elenco foi
+conferida no TVmaze e a pesquisa de materiais relacionados à série no
+Wikimedia Commons. Para publicação pública/comercial, substitua as fotos por
+ativos licenciados ou obtenha autorização para os materiais promocionais.
+
+Referências pesquisadas:
+
+- TVmaze — elenco de The Mentalist: https://www.tvmaze.com/shows/116/the-mentalist/cast
+- Wikimedia Commons — categoria The Mentalist: https://commons.wikimedia.org/wiki/Category:The_Mentalist
+- Wikimedia Commons — símbolo de Red John: https://commons.wikimedia.org/wiki/File:Red-John-Smiley-Face.svg
+- Wikimedia Commons — Pico House, associado ao cenário da CBI: https://commons.wikimedia.org/wiki/File:Pico_House_-_R%C3%BCckseite.jpg
+
+O símbolo desenhado no fundo pela própria interface é CSS e não depende de
+nenhuma biblioteca externa.
 
 ## Como rodar localmente
 
-Como os módulos utilizam `import`/`export`, é necessário servir os arquivos
-por HTTP. Não abra o `index.html` diretamente por `file://`.
-
-Uma opção simples:
+Como os módulos utilizam `import`/`export`, sirva os arquivos por HTTP. No VS Code,
+o Live Server é suficiente. Também é possível usar:
 
 ```bash
 npx serve .
 ```
 
-Ou:
+ou:
 
 ```bash
 python3 -m http.server
 ```
 
-Depois acesse o endereço indicado pelo terminal.
+## Estrutura
 
-## Estrutura do projeto
+- `index.html` — estrutura semântica e conteúdo em português.
+- `style.css` — identidade visual do Mentalista, responsividade, Grid/Flexbox,
+  foco, contraste e cenografia de rolagem.
+- `dados.json` — fonte única de casos.
+- `imagens/` — imagens locais usadas na interface.
+- `js/api.js` — busca os dados com `fetch`.
+- `js/estado.js` — estado único.
+- `js/derivacao.js` — busca, filtros e ordenação sem mutar a fonte original.
+- `js/renderizacao.js` — projeção dos casos nos cartões.
+- `js/estados.js` — ciclo único de renderização e indicadores.
+- `js/eventos.js` — eventos dos controles.
+- `js/efeitos.js` — parallax, revelação progressiva e navegação ativa.
+- `js/main.js` — ponto de entrada.
 
-- `index.html` — estrutura semântica, navegação, hero, painel da frota,
-  centro de operações, leitura da garagem e painel de performance.
-- `style.css` — sistema visual, paleta automotiva, textura de carbono,
-  fundo do motor, Grid, Flexbox, responsividade e microinterações.
-- `fundo-motor-ferrari.jpg` — imagem local usada como atmosfera visual do
-  motor no fundo e no hero.
-- `dados.json` — fonte de dados consumida por `carregarTarefas()`.
-- `js/api.js` — busca as operações com `fetch`, sem tocar no DOM.
-- `js/estado.js` — objeto de estado único da aplicação.
-- `js/derivacao.js` — calcula a lista visível a partir do estado
-  (busca + filtros + ordenação), sem alterar `estado.tarefas`.
-- `js/renderizacao.js` — desenha os cartões de operação a partir de um array.
-- `js/estados.js` — ponto único de renderização e atualização dos indicadores.
-- `js/eventos.js` — liga os controles do formulário ao estado.
-- `js/efeitos.js` — parallax do hero e revelação progressiva no scroll.
-- `js/main.js` — ponto de entrada: carrega os dados e inicia eventos e efeitos.
+## Compatibilidade E4
 
-## Modelo de dados
+Os valores internos permanecem: `a-fazer`, `em-andamento`, `em-revisao`,
+`concluida`, `baixa`, `media` e `alta`. A interface traduz esses valores para:
 
-A estrutura de `dados.json` e os valores internos usados pelo JavaScript
-(`a-fazer`, `em-andamento`, `em-revisao`, `concluida`, `baixa`, `media`,
-`alta`) permanecem compatíveis com as entregas anteriores.
+- `a-fazer` → Em aberto
+- `em-andamento` → Em investigação
+- `em-revisao` → Em análise
+- `concluida` → Encerrado
 
-A linguagem visual traduz os conceitos para o universo automotivo:
+O objeto `estado` continua sendo a única fonte de verdade e a tela continua
+sendo uma projeção desse estado. Não foi criado um segundo array permanente
+para filtros ou ordenação.
 
-- Tarefa → Operação
-- Projeto → Veículo
-- Responsável → Especialista
-- Prazo → Data prevista
-- Status → Etapa da operação
+## GitHub Pages
 
-Os números exibidos nos painéis são derivados do estado atual; não existe
-uma segunda fonte permanente de dados.
-
-## Como publicar no GitHub Pages
-
-1. Faça commit e push de todos os arquivos para a branch padrão do repositório.
-2. No GitHub, vá em **Configurações → Pages**.
-3. Em **Fonte**, selecione a branch padrão e a pasta raiz (`/`).
-4. Salve e aguarde a publicação.
-5. Confira a URL pública.
-6. Abra a URL e confira, nas ferramentas do navegador, que `dados.json`,
-   `style.css` e todos os módulos de `js/` carregam com status 200 e sem
-   erros no Console.
+Depois de testar localmente, faça commit e push de todos os arquivos. Em
+GitHub → Configurações → Pages, selecione a branch principal e a pasta raiz.
+Antes da entrega, confira se `dados.json`, `style.css` e todos os módulos JS
+retornam 200 e se o Console do navegador está sem erros.

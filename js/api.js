@@ -15,7 +15,7 @@ export async function carregarTarefas() {
   const dados = await resposta.json();
 
   if (!dados || !Array.isArray(dados.tarefas)) {
-    throw new Error("O arquivo dados.json não possui uma lista válida de tarefas.");
+    throw new Error("O arquivo dados.json não possui uma lista válida de casos.");
   }
 
   return dados.tarefas;
