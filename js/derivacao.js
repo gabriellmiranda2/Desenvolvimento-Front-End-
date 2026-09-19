@@ -36,7 +36,8 @@ export function derivarTarefasVisiveis(estado) {
   const busca = normalizar(estado.busca);
 
   let visiveis = estado.tarefas.filter((tarefa) => {
-    const combinaBusca = busca === "" || normalizar(tarefa.titulo).includes(busca);
+    const textoInvestigacao = [tarefa.titulo, tarefa.projeto, tarefa.responsavel, tarefa.prazo, tarefa.status, tarefa.prioridade].filter(Boolean).join(" ");
+    const combinaBusca = busca === "" || normalizar(textoInvestigacao).includes(busca);
     const combinaStatus = estado.status === "" || tarefa.status === estado.status;
     const combinaPrioridade =
       estado.prioridade === "" || tarefa.prioridade === estado.prioridade;

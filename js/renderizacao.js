@@ -45,6 +45,12 @@ function criarCartao(tarefa) {
 
   const prioridadeTexto = PRIORIDADE_TEXTO[tarefa.prioridade] ?? tarefa.prioridade;
   const etapaTexto = ETAPA_TEXTO[tarefa.status] ?? tarefa.status;
+  const naipes = { "a-fazer": "♠", "em-andamento": "♣", "em-revisao": "♦", concluida: "♥" };
+
+  const naipe = document.createElement("span");
+  naipe.className = "cartao__naipe";
+  naipe.setAttribute("aria-hidden", "true");
+  naipe.textContent = naipes[tarefa.status] ?? "♠";
 
   const cabecalho = document.createElement("div");
   cabecalho.className = "cartao__cabecalho";
@@ -87,7 +93,7 @@ function criarCartao(tarefa) {
   rodape.className = "cartao__rodape";
   rodape.textContent = `Arquivo · CBI-${tarefa.id}`;
 
-  artigo.append(cabecalho, identidade, etapa, detalhes, rodape);
+  artigo.append(naipe, cabecalho, identidade, etapa, detalhes, rodape);
   item.append(artigo);
   return item;
 }

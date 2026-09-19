@@ -1,92 +1,88 @@
 # O Mentalista — Arquivo CBI
 
-Etapa 4 (E4) do sistema de gestão: estado único, busca, filtros, ordenação,
-estados de carregamento e publicação. O projeto recebeu um redesign completo
-para o universo de **O Mentalista**, com foco em Patrick Jane, investigação,
-evidências, depoimentos e atmosfera de arquivo policial.
+Projeto acadêmico de Frontend — 2026.2. A aplicação transforma o gerenciador de casos em uma experiência de **arquivo investigativo fictício**, inspirada na atmosfera de *O Mentalista*, sem substituir a arquitetura funcional da E4.
 
-## O que mudou no redesign
+## Direção do redesign
 
-- Identidade visual trocada do tema automotivo para investigação policial.
-- Interface inteira em português.
-- Patrick Jane recebe destaque no hero, no perfil e nos cartões.
-- Teresa Lisbon, Kimball Cho e Grace Van Pelt aparecem na área da equipe.
-- Cartões de casos exibem retratos dos investigadores.
-- Fundo cenográfico reage à rolagem com parallax, deslocamento do retrato e
-  aparição progressiva do símbolo associado ao Red John.
-- Removidos textos e elementos de estética futurista/IA do protótipo anterior.
-- Paleta baseada em vinho, papel envelhecido, grafite, dourado discreto e
-  tons quentes de arquivo.
-- `dados.json` foi convertido de operações automotivas para casos fictícios
-  de investigação, mantendo os valores internos de status e prioridade exigidos
-  pela arquitetura E4.
+- Arquivo CBI com estética editorial, suspense e dossiês confidenciais.
+- Patrick Jane como principal presença visual, utilizando os assets locais já existentes.
+- Centro de controle e **Casos em andamento** apresentados juntos na mesma área de investigação.
+- Cards tratados como cartas/dossiês, com naipes, selos de prioridade e microinterações.
+- Campos de busca e filtros apresentados como uma ficha de investigação.
+- Dois jogos mentais locais para reforçar a temática de observação e padrões.
+- Fundo cinematográfico usando o retrato local de Patrick Jane, com camadas CSS e parallax discreto.
+- Sem frameworks, bibliotecas de animação, CDN ou dependências externas.
 
-## Imagens
+## Arquitetura E4 preservada
 
-As imagens dos personagens usadas localmente em `imagens/` foram fornecidas
-pelo usuário nesta conversa. A pesquisa de referências para o elenco foi
-conferida no TVmaze e a pesquisa de materiais relacionados à série no
-Wikimedia Commons. Para publicação pública/comercial, substitua as fotos por
-ativos licenciados ou obtenha autorização para os materiais promocionais.
+O fluxo permanece:
 
-Referências pesquisadas:
-
-- TVmaze — elenco de The Mentalist: https://www.tvmaze.com/shows/116/the-mentalist/cast
-- Wikimedia Commons — categoria The Mentalist: https://commons.wikimedia.org/wiki/Category:The_Mentalist
-- Wikimedia Commons — símbolo de Red John: https://commons.wikimedia.org/wiki/File:Red-John-Smiley-Face.svg
-- Wikimedia Commons — Pico House, associado ao cenário da CBI: https://commons.wikimedia.org/wiki/File:Pico_House_-_R%C3%BCckseite.jpg
-
-O símbolo desenhado no fundo pela própria interface é CSS e não depende de
-nenhuma biblioteca externa.
-
-## Como rodar localmente
-
-Como os módulos utilizam `import`/`export`, sirva os arquivos por HTTP. No VS Code,
-o Live Server é suficiente. Também é possível usar:
-
-```bash
-npx serve .
+```text
+dados.json
+    ↓
+carregarTarefas()
+    ↓
+estado.tarefas
+    ↓
+derivarTarefasVisiveis()
+    ↓
+renderizar()
+    ↓
+DOM
 ```
 
-ou:
+O objeto `estado` continua sendo a fonte única de verdade. O array original não é mutado pela ordenação. A busca agora consulta os campos textuais disponíveis no próprio registro (`titulo`, `projeto`, `responsavel`, `prazo`, `status` e `prioridade`) sem criar uma segunda fonte de dados.
 
-```bash
-python3 -m http.server
-```
-
-## Estrutura
-
-- `index.html` — estrutura semântica e conteúdo em português.
-- `style.css` — identidade visual do Mentalista, responsividade, Grid/Flexbox,
-  foco, contraste e cenografia de rolagem.
-- `dados.json` — fonte única de casos.
-- `imagens/` — imagens locais usadas na interface.
-- `js/api.js` — busca os dados com `fetch`.
-- `js/estado.js` — estado único.
-- `js/derivacao.js` — busca, filtros e ordenação sem mutar a fonte original.
-- `js/renderizacao.js` — projeção dos casos nos cartões.
-- `js/estados.js` — ciclo único de renderização e indicadores.
-- `js/eventos.js` — eventos dos controles.
-- `js/efeitos.js` — parallax, revelação progressiva e navegação ativa.
-- `js/main.js` — ponto de entrada.
-
-## Compatibilidade E4
-
-Os valores internos permanecem: `a-fazer`, `em-andamento`, `em-revisao`,
-`concluida`, `baixa`, `media` e `alta`. A interface traduz esses valores para:
+## Valores internos preservados
 
 - `a-fazer` → Em aberto
 - `em-andamento` → Em investigação
 - `em-revisao` → Em análise
 - `concluida` → Encerrado
+- `baixa`, `media`, `alta` permanecem inalterados.
 
-O objeto `estado` continua sendo a única fonte de verdade e a tela continua
-sendo uma projeção desse estado. Não foi criado um segundo array permanente
-para filtros ou ordenação.
+## Estrutura
+
+- `index.html` — estrutura semântica da aplicação.
+- `style.css` — design system, responsividade, acessibilidade, cartas/dossiês e cenografia.
+- `dados.json` — fonte única dos casos.
+- `imagens/` — assets locais dos personagens e logo.
+- `js/api.js` — carregamento dos dados.
+- `js/estado.js` — estado único.
+- `js/derivacao.js` — busca, filtros e ordenação.
+- `js/renderizacao.js` — criação dinâmica dos cards.
+- `js/estados.js` — estados de carregamento, erro, vazio e sucesso.
+- `js/eventos.js` — eventos dos filtros.
+- `js/efeitos.js` — parallax, IntersectionObserver, navegação ativa e jogos mentais.
+- `js/main.js` — ponto de entrada.
+
+## Como rodar
+
+Como os módulos utilizam `import`/`export`, sirva a pasta por HTTP. No VS Code, o Live Server é suficiente. Também é possível usar:
+
+```bash
+python3 -m http.server
+```
+
+Depois, abra o endereço local informado pelo servidor.
+
+## Auditoria funcional
+
+Verifique no navegador:
+
+1. Busca por texto.
+2. Filtro de status.
+3. Filtro de prioridade.
+4. Combinação dos filtros.
+5. Ordenação por prazo sem alterar `estado.tarefas`.
+6. Limpeza dos filtros.
+7. Estado de resultado vazio.
+8. Estado de erro do `dados.json`.
+9. Uso completo por teclado e foco visível.
+10. Layout em 320px sem scroll horizontal.
+
+O redesign mantém HTML semântico, exatamente um `h1`, `main`, `section`, `article`, listas, labels, fieldsets, legends, `aria-live`, foco visível e `prefers-reduced-motion`.
 
 ## GitHub Pages
 
-Depois de testar localmente, faça commit e push de todos os arquivos. Em
-GitHub → Configurações → Pages, selecione a branch principal e a pasta raiz.
-Antes da entrega, confira se `dados.json`, `style.css` e todos os módulos JS
-retornam 200 e se o Console do navegador está sem erros.
+A publicação continua sendo estática. Todos os arquivos devem permanecer relativos ao projeto para que `index.html`, `style.css`, `dados.json` e os módulos JavaScript funcionem também no GitHub Pages.

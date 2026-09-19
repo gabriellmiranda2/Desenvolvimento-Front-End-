@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Mentalista — Arquivo de Investigações da CBI</title>
+    <meta name="description" content="Arquivo fictício de casos investigativos inspirado no universo de O Mentalista.">
+    <title>O Mentalista — Arquivo CBI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,29 +19,29 @@
         <aside class="barra-lateral" aria-label="Navegação principal">
             <a class="marca" href="#inicio" aria-label="O Mentalista — voltar ao início">
                 <img src="imagens/logo-o-mentalista.png" alt="O Mentalista" class="marca__logo">
-                <span class="marca__texto"><strong>ARQUIVO CBI</strong><small>Investigação · Observação · Evidências</small></span>
+                <span class="marca__texto"><strong>ARQUIVO CBI</strong><small>Observação · Evidências · Casos</small></span>
             </a>
 
             <nav class="navegacao" aria-label="Seções do arquivo">
                 <a class="navegacao__link navegacao__link--ativo" href="#inicio"><span aria-hidden="true">⌂</span> Início</a>
-                <a class="navegacao__link" href="#casos"><span aria-hidden="true">▣</span> Casos</a>
-                <a class="navegacao__link" href="#controle"><span aria-hidden="true">⌁</span> Investigação</a>
-                <a class="navegacao__link" href="#equipe"><span aria-hidden="true">◇</span> Equipe</a>
-                <a class="navegacao__link" href="#relatorios"><span aria-hidden="true">▥</span> Relatórios</a>
-                <a class="navegacao__link" href="#rodape"><span aria-hidden="true">⚙</span> Arquivo</a>
+                <a class="navegacao__link" href="#casos"><span aria-hidden="true">♠</span> Dossiês</a>
+                <a class="navegacao__link" href="#controle"><span aria-hidden="true">⌕</span> Controle</a>
+                <a class="navegacao__link" href="#jogos"><span aria-hidden="true">♣</span> Jogos mentais</a>
+                <a class="navegacao__link" href="#equipe"><span aria-hidden="true">♦</span> Equipe</a>
+                <a class="navegacao__link" href="#relatorios"><span aria-hidden="true">♥</span> Relatórios</a>
             </nav>
 
             <section class="arquivo-lateral" aria-labelledby="titulo-arquivo-lateral">
-                <h2 id="titulo-arquivo-lateral">Arquivo atual</h2>
+                <h2 id="titulo-arquivo-lateral">Dossiê em consulta</h2>
                 <ul>
                     <li><span class="arquivo-lateral__ponto"></span> Casos ativos</li>
-                    <li><span class="arquivo-lateral__ponto"></span> Evidências</li>
+                    <li><span class="arquivo-lateral__ponto"></span> Pistas em análise</li>
                     <li><span class="arquivo-lateral__ponto"></span> Depoimentos</li>
-                    <li><span class="arquivo-lateral__ponto"></span> Relatórios</li>
+                    <li><span class="arquivo-lateral__ponto"></span> Arquivo restrito</li>
                 </ul>
             </section>
 
-            <p class="barra-lateral__frase">Observe antes de concluir. Toda pista deixa uma marca.</p>
+            <p class="barra-lateral__frase">“A verdade está nos detalhes.”</p>
         </aside>
 
         <div class="conteudo">
@@ -48,60 +49,114 @@
                 <div class="cabecalho__status"><span class="indicador"></span> ARQUIVO CBI · ACESSO INTERNO</div>
                 <div class="cabecalho__acoes">
                     <span class="cabecalho__data">SACRAMENTO · CALIFÓRNIA · 2026</span>
-                    <button type="button" class="botao-icone" aria-label="Notificações">●</button>
+                    <button type="button" class="botao-icone" aria-label="Notificações do arquivo">●</button>
                     <span class="perfil"><span class="perfil__avatar">PJ</span><span>Patrick Jane<small>Consultor</small></span></span>
                 </div>
             </header>
 
-            <header class="hero revelar" data-revelar-grupo="hero">
+            <header class="hero revelar" data-revelar-grupo="hero" aria-labelledby="titulo-hero">
                 <div class="hero__conteudo">
-                    <p class="hero__etiqueta">Agência de Investigação da Califórnia</p>
-                    <h1 class="hero__titulo">Leia as pistas.<br><span>Encontre a verdade.</span></h1>
-                    <p class="hero__tagline">Um arquivo de casos inspirado em <em>O Mentalista</em>, com Patrick Jane no centro da investigação.</p>
-                    <ul class="hero__marcas">
-                        <li>Casos</li><li>Evidências</li><li>Depoimentos</li><li>Observação</li>
+                    <div class="hero__carimbo">ARQUIVO CONFIDENCIAL · CBI</div>
+                    <p class="hero__etiqueta">California Bureau of Investigation</p>
+                    <h1 id="titulo-hero" class="hero__titulo">Alguns veem pistas.<br><span>Jane vê padrões.</span></h1>
+                    <p class="hero__tagline">Um centro de investigação fictício onde cada caso é tratado como um dossiê: observe, conecte e descubra o que os registros não dizem.</p>
+                    <ul class="hero__marcas" aria-label="Recursos do arquivo">
+                        <li>Casos</li><li>Pistas</li><li>Depoimentos</li><li>Observação</li>
                     </ul>
                 </div>
                 <figure class="hero__personagem">
-                    <img src="imagens/patrick-jane.png" alt="Patrick Jane segurando uma xícara de chá" loading="eager">
-                    <figcaption><strong>Patrick Jane</strong><span>Consultor da CBI</span></figcaption>
+                    <div class="hero__foto-moldura">
+                        <img src="imagens/patrick-jane.png" alt="Patrick Jane diante de anotações de investigação" loading="eager">
+                    </div>
+                    <figcaption><strong>Patrick Jane</strong><span>Consultor · observação e dedução</span></figcaption>
                 </figure>
-                <div class="hero__pista" aria-hidden="true"><span>RED JOHN</span><i></i></div>
+                <div class="hero__arquivo" aria-hidden="true"><span>CASE FILE</span><strong>RJ</strong><small>CLASSIFIED</small></div>
             </header>
 
             <p id="status-tarefas" role="status" aria-live="polite" class="regiao-status"></p>
 
             <main>
-                <section class="dashboard revelar" id="casos" aria-labelledby="titulo-dashboard">
+                <section class="dossie revelar" id="casos" aria-labelledby="titulo-dashboard">
                     <div class="secao-cabecalho">
-                        <div><p class="secao-kicker">Leitura do arquivo</p><h2 id="titulo-dashboard">Painel de casos</h2></div>
-                        <p class="secao-ajuda">Os números abaixo acompanham diretamente os casos carregados pelo arquivo.</p>
+                        <div><p class="secao-kicker">Dossiê central</p><h2 id="titulo-dashboard">Casos &amp; evidências</h2></div>
+                        <p class="secao-ajuda">Os indicadores são calculados diretamente a partir do arquivo atual. Nenhum número é inventado.</p>
                     </div>
                     <ul class="dashboard__grade">
-                        <li class="dashboard__item dashboard__item--total"><span class="dashboard__icone" aria-hidden="true">▣</span><span class="dashboard__numero" id="contagem-total">–</span><span class="dashboard__rotulo">Casos registrados</span><span class="dashboard__linha"></span></li>
-                        <li class="dashboard__item dashboard__item--agendado"><span class="dashboard__icone" aria-hidden="true">◷</span><span class="dashboard__numero" id="contagem-agendado">–</span><span class="dashboard__rotulo">Em aberto</span><span class="dashboard__linha"></span></li>
-                        <li class="dashboard__item dashboard__item--servico"><span class="dashboard__icone" aria-hidden="true">⌁</span><span class="dashboard__numero" id="contagem-servico">–</span><span class="dashboard__rotulo">Em investigação</span><span class="dashboard__linha"></span></li>
-                        <li class="dashboard__item dashboard__item--inspecao"><span class="dashboard__icone" aria-hidden="true">◇</span><span class="dashboard__numero" id="contagem-inspecao">–</span><span class="dashboard__rotulo">Em análise</span><span class="dashboard__linha"></span></li>
-                        <li class="dashboard__item dashboard__item--finalizado"><span class="dashboard__icone" aria-hidden="true">✓</span><span class="dashboard__numero" id="contagem-finalizado">–</span><span class="dashboard__rotulo">Encerrados</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--total"><span class="dashboard__icone" aria-hidden="true">♠</span><span class="dashboard__numero" id="contagem-total">–</span><span class="dashboard__rotulo">Casos no arquivo</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--agendado"><span class="dashboard__icone" aria-hidden="true">○</span><span class="dashboard__numero" id="contagem-agendado">–</span><span class="dashboard__rotulo">Em aberto</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--servico"><span class="dashboard__icone" aria-hidden="true">♣</span><span class="dashboard__numero" id="contagem-servico">–</span><span class="dashboard__rotulo">Em investigação</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--inspecao"><span class="dashboard__icone" aria-hidden="true">♦</span><span class="dashboard__numero" id="contagem-inspecao">–</span><span class="dashboard__rotulo">Em análise</span><span class="dashboard__linha"></span></li>
+                        <li class="dashboard__item dashboard__item--finalizado"><span class="dashboard__icone" aria-hidden="true">♥</span><span class="dashboard__numero" id="contagem-finalizado">–</span><span class="dashboard__rotulo">Encerrados</span><span class="dashboard__linha"></span></li>
                     </ul>
                 </section>
 
-                <section class="filtros revelar" id="controle" aria-labelledby="titulo-filtros">
-                    <div class="secao-cabecalho">
-                        <div><p class="secao-kicker">Mesa de investigação</p><h2 id="titulo-filtros">Centro de controle dos casos</h2></div>
-                        <p class="secao-ajuda">Pesquise por caso, responsável, etapa ou prioridade. A lista reage enquanto você investiga.</p>
+                <section class="central-investigacao revelar" id="controle" aria-labelledby="titulo-filtros">
+                    <div class="secao-cabecalho central-investigacao__cabecalho">
+                        <div><p class="secao-kicker">Mesa de investigação</p><h2 id="titulo-filtros">Centro de controle</h2></div>
+                        <p class="secao-ajuda">Aplique os filtros como quem cruza depoimentos. À direita, os dossiês reagem à sua leitura.</p>
                     </div>
-                    <form id="form-filtros" action="" method="get">
-                        <div class="campo campo--busca"><label for="busca">Pesquisar caso</label><input type="search" id="busca" name="busca" placeholder="Ex.: depoimento, evidência, desaparecimento"></div>
-                        <fieldset class="campo"><legend>Etapa</legend><label for="status">Status</label><select id="status" name="status"><option value="">Todas as etapas</option><option value="a-fazer">Em aberto</option><option value="em-andamento">Em investigação</option><option value="em-revisao">Em análise</option><option value="concluida">Encerrado</option></select></fieldset>
-                        <fieldset class="campo"><legend>Prioridade</legend><label for="prioridade">Prioridade</label><select id="prioridade" name="prioridade"><option value="">Todas as prioridades</option><option value="baixa">Baixa</option><option value="media">Média</option><option value="alta">Alta</option></select></fieldset>
-                        <fieldset class="campo"><legend>Ordenação</legend><label for="ordenacao">Ordenação</label><select id="ordenacao" name="ordenacao"><option value="">Sem ordenação</option><option value="prazo-asc">Data mais próxima primeiro</option><option value="prazo-desc">Data mais distante primeiro</option></select></fieldset>
-                        <button type="button" id="limpar-filtros" class="botao-secundario">Limpar investigação</button>
-                    </form>
+
+                    <div class="central-investigacao__grade">
+                        <div class="filtros" aria-label="Filtros do arquivo">
+                            <div class="filtros__cabecalho"><span class="filtros__selo">CBI / 07</span><span class="filtros__estado"><i></i> investigação aberta</span></div>
+                            <form id="form-filtros" action="" method="get">
+                                <div class="campo campo--busca">
+                                    <label for="busca">Qual é a pista?</label>
+                                    <div class="campo__entrada"><span aria-hidden="true">⌕</span><input type="search" id="busca" name="busca" placeholder="caso, investigador, depoimento…" autocomplete="off"></div>
+                                </div>
+                                <fieldset class="campo"><legend>Etapa do caso</legend><label for="status">Status</label><select id="status" name="status"><option value="">Todas as etapas</option><option value="a-fazer">Em aberto</option><option value="em-andamento">Em investigação</option><option value="em-revisao">Em análise</option><option value="concluida">Encerrado</option></select></fieldset>
+                                <fieldset class="campo"><legend>Nível de atenção</legend><label for="prioridade">Prioridade</label><select id="prioridade" name="prioridade"><option value="">Todas as prioridades</option><option value="baixa">Baixa</option><option value="media">Média</option><option value="alta">Alta</option></select></fieldset>
+                                <fieldset class="campo"><legend>Ordem de leitura</legend><label for="ordenacao">Ordenação</label><select id="ordenacao" name="ordenacao"><option value="">Sem ordenação</option><option value="prazo-asc">Data mais próxima primeiro</option><option value="prazo-desc">Data mais distante primeiro</option></select></fieldset>
+                                <button type="button" id="limpar-filtros" class="botao-secundario"><span aria-hidden="true">↺</span> Limpar investigação</button>
+                            </form>
+                            <div class="filtros__rodape"><span>arquivo_ativo</span><strong>não confie na primeira impressão</strong></div>
+                        </div>
+
+                        <section class="quadro" aria-labelledby="titulo-quadro">
+                            <div class="secao-cabecalho quadro__cabecalho"><div><p class="secao-kicker">Mesa de casos</p><h2 id="titulo-quadro">Casos em andamento</h2></div><p class="secao-ajuda">Cartas de investigação organizadas por etapa.</p></div>
+                            <section class="coluna coluna--a-fazer" aria-labelledby="titulo-a-fazer"><div class="coluna__cabecalho"><div><span class="coluna__marcador" aria-hidden="true">○</span><h3 id="titulo-a-fazer">Em aberto</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em aberto">–</span></div><p class="coluna__descricao">Aguardam a próxima jogada.</p><ul class="cartoes"><li><article class="cartao"><h4>Consultando arquivo…</h4></article></li></ul></section>
+                            <section class="coluna coluna--em-andamento" aria-labelledby="titulo-em-andamento"><div class="coluna__cabecalho"><div><span class="coluna__marcador" aria-hidden="true">♣</span><h3 id="titulo-em-andamento">Em investigação</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em investigação">–</span></div><p class="coluna__descricao">A equipe está seguindo as pistas.</p><ul class="cartoes"><li><article class="cartao"><h4>Consultando arquivo…</h4></article></li></ul></section>
+                            <section class="coluna coluna--em-revisao" aria-labelledby="titulo-em-revisao"><div class="coluna__cabecalho"><div><span class="coluna__marcador" aria-hidden="true">♦</span><h3 id="titulo-em-revisao">Em análise</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em análise">–</span></div><p class="coluna__descricao">Hipóteses e evidências em revisão.</p><ul class="cartoes"><li><article class="cartao"><h4>Consultando arquivo…</h4></article></li></ul></section>
+                            <section class="coluna coluna--concluida" aria-labelledby="titulo-concluida"><div class="coluna__cabecalho"><div><span class="coluna__marcador" aria-hidden="true">♥</span><h3 id="titulo-concluida">Encerrados</h3></div><span class="coluna__numero" aria-label="Quantidade de casos encerrados">–</span></div><p class="coluna__descricao">Resolvidos e enviados ao arquivo.</p><ul class="cartoes"><li><article class="cartao"><h4>Consultando arquivo…</h4></article></li></ul></section>
+                        </section>
+                    </div>
+                </section>
+
+                <section class="jogos revelar" id="jogos" aria-labelledby="titulo-jogos">
+                    <div class="secao-cabecalho"><div><p class="secao-kicker">Sala de observação</p><h2 id="titulo-jogos">Jogos mentais de Jane</h2></div><p class="secao-ajuda">Uma pausa no arquivo. Treine atenção aos detalhes sem alterar os dados dos casos.</p></div>
+                    <div class="jogos__grade">
+                        <article class="jogo jogo--observacao">
+                            <div class="jogo__topo"><span>TESTE 01</span><strong>OBSERVAÇÃO</strong></div>
+                            <h3>Qual detalhe merece desconfiança?</h3>
+                            <p>Leia a ficha e escolha o detalhe que mais quebra a lógica da cena.</p>
+                            <div class="jogo__ficha" aria-label="Ficha de observação">
+                                <span>CASO 021</span><span>22:40</span><span>CHUVA</span><span>PORTA TRANCADA</span>
+                            </div>
+                            <div class="jogo__opcoes" data-jogo-observacao>
+                                <button type="button" data-resposta="errada">A testemunha usava relógio.</button>
+                                <button type="button" data-resposta="certa">O registro diz “porta trancada” e há uma chave do lado de fora.</button>
+                                <button type="button" data-resposta="errada">Havia chuva na noite.</button>
+                            </div>
+                            <p class="jogo__feedback" data-feedback-observacao role="status" aria-live="polite"></p>
+                        </article>
+
+                        <article class="jogo jogo--padrao">
+                            <div class="jogo__topo"><span>TESTE 02</span><strong>PADRÃO</strong></div>
+                            <h3>Continue a sequência</h3>
+                            <p>Jane olha para padrões antes de olhar para respostas.</p>
+                            <div class="sequencia" aria-label="Sequência de símbolos">♠ · ♥ · ♠ · ♥ · <strong>?</strong></div>
+                            <div class="jogo__opcoes" data-jogo-padrao>
+                                <button type="button" data-padrao="♠">♠ Espadas</button>
+                                <button type="button" data-padrao="♦">♦ Ouros</button>
+                                <button type="button" data-padrao="♣">♣ Paus</button>
+                            </div>
+                            <p class="jogo__feedback" data-feedback-padrao role="status" aria-live="polite"></p>
+                        </article>
+                    </div>
                 </section>
 
                 <section class="visao revelar" id="relatorios" aria-labelledby="titulo-visao">
-                    <div class="secao-cabecalho"><div><p class="secao-kicker">Mapa do arquivo</p><h2 id="titulo-visao">Leitura dos casos</h2></div><p class="secao-ajuda">Uma leitura rápida das etapas e prioridades atuais, derivada da mesma base de dados.</p></div>
+                    <div class="secao-cabecalho"><div><p class="secao-kicker">Mapa do arquivo</p><h2 id="titulo-visao">Leitura dos casos</h2></div><p class="secao-ajuda">Distribuição derivada da mesma fonte de dados usada nos dossiês.</p></div>
                     <div class="visao__grade">
                         <article class="painel-detalhe"><div class="painel-detalhe__topo"><span>ETAPAS</span><strong id="visao-total">–</strong></div><ul class="barras-status">
                             <li><div><span>Em aberto</span><strong id="visao-agendado">–</strong></div><span class="barra"><i id="barra-agendado"></i></span></li>
@@ -118,21 +173,14 @@
                 </section>
 
                 <section class="equipe revelar" id="equipe" aria-labelledby="titulo-equipe">
-                    <div class="secao-cabecalho"><div><p class="secao-kicker">CBI</p><h2 id="titulo-equipe">Equipe de investigação</h2></div><p class="secao-ajuda">Personagens em destaque na operação do arquivo.</p></div>
+                    <div class="secao-cabecalho"><div><p class="secao-kicker">CBI</p><h2 id="titulo-equipe">Equipe de investigação</h2></div><p class="secao-ajuda">Retratos usados como referências narrativas do universo da aplicação.</p></div>
                     <ul class="equipe__grade">
                         <li class="agente agente--destaque"><img src="imagens/patrick-jane.png" alt="Patrick Jane" loading="lazy"><div><span>Consultor</span><h3>Patrick Jane</h3><p>Observação e dedução.</p></div></li>
                         <li class="agente"><img src="imagens/teresa-lisbon.png" alt="Teresa Lisbon" loading="lazy"><div><span>Agente sênior</span><h3>Teresa Lisbon</h3><p>Coordenação da investigação.</p></div></li>
                         <li class="agente"><img src="imagens/kimball-cho.png" alt="Kimball Cho" loading="lazy"><div><span>Agente</span><h3>Kimball Cho</h3><p>Depoimentos e campo.</p></div></li>
                         <li class="agente"><img src="imagens/grace-van-pelt.png" alt="Grace Van Pelt" loading="lazy"><div><span>Agente</span><h3>Grace Van Pelt</h3><p>Evidências e tecnologia.</p></div></li>
+                        <li class="agente agente--rigsby"><div class="agente__avatar-text" aria-hidden="true">WR</div><div><span>Agente</span><h3>Wayne Rigsby</h3><p>Campo e investigação.</p></div></li>
                     </ul>
-                </section>
-
-                <section class="quadro revelar" aria-labelledby="titulo-quadro">
-                    <div class="secao-cabecalho quadro__cabecalho"><div><p class="secao-kicker">Fluxo investigativo</p><h2 id="titulo-quadro">Casos em andamento</h2></div><p class="secao-ajuda">Cada cartão representa um caso do arquivo e sua etapa atual.</p></div>
-                    <section class="coluna coluna--a-fazer" aria-labelledby="titulo-a-fazer"><div class="coluna__cabecalho"><div><span class="coluna__marcador">◷</span><h3 id="titulo-a-fazer">Em aberto</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em aberto">–</span></div><p class="coluna__descricao">Casos que aguardam a próxima ação.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
-                    <section class="coluna coluna--em-andamento" aria-labelledby="titulo-em-andamento"><div class="coluna__cabecalho"><div><span class="coluna__marcador">⌁</span><h3 id="titulo-em-andamento">Em investigação</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em investigação">–</span></div><p class="coluna__descricao">Casos que estão sendo investigados pela equipe.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
-                    <section class="coluna coluna--em-revisao" aria-labelledby="titulo-em-revisao"><div class="coluna__cabecalho"><div><span class="coluna__marcador">◇</span><h3 id="titulo-em-revisao">Em análise</h3></div><span class="coluna__numero" aria-label="Quantidade de casos em análise">–</span></div><p class="coluna__descricao">Evidências e hipóteses em revisão.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
-                    <section class="coluna coluna--concluida" aria-labelledby="titulo-concluida"><div class="coluna__cabecalho"><div><span class="coluna__marcador">✓</span><h3 id="titulo-concluida">Encerrados</h3></div><span class="coluna__numero" aria-label="Quantidade de casos encerrados">–</span></div><p class="coluna__descricao">Casos concluídos e enviados ao arquivo.</p><ul class="cartoes"><li><article class="cartao"><h4>Carregando caso…</h4></article></li></ul></section>
                 </section>
 
                 <section class="desempenho revelar" aria-labelledby="titulo-desempenho">
@@ -141,7 +189,7 @@
                         <article class="desempenho__card"><span>CASOS REGISTRADOS</span><strong id="desempenho-total">–</strong><small>no arquivo atual</small></article>
                         <article class="desempenho__card desempenho__card--alerta"><span>PRIORIDADE ALTA</span><strong id="desempenho-alta">–</strong><small>casos que pedem atenção</small></article>
                         <article class="desempenho__card"><span>INVESTIGADORES</span><strong id="desempenho-especialistas">–</strong><small>profissionais envolvidos</small></article>
-                        <article class="desempenho__assinatura"><span>O MENTALISTA</span><strong>Observe os detalhes. Eles contam a história.</strong><i aria-hidden="true"></i></article>
+                        <article class="desempenho__assinatura"><span>ARQUIVO CBI</span><strong>Observe duas vezes. Conclua uma.</strong><i aria-hidden="true"></i></article>
                     </div>
                 </section>
             </main>
